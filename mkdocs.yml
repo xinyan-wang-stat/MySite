@@ -1,0 +1,8 @@
+site_name: MySite
+theme:
+  name: material
+  
+nav:
+  - Home: index.md
+  - Guide: guide/
+  - API: api/
