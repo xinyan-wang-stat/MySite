@@ -57,6 +57,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#claude-37-sonnet" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1459,6 +1464,86 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#claude-37-sonnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude 3.7 Sonnet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-by-question-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routing by Question Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      关系
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 双模式架构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-thinking-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 思考预算 (Thinking Budget)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-latent-cot" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 内部隐式推理 (Latent CoT)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 混合调度
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 性能实现
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1475,7 +1560,94 @@
 
   <h1>Claude</h1>
 
-
+<p>两者分属不同层面：</p>
+<hr />
+<h2 id="claude-37-sonnet"><strong>Claude 3.7 Sonnet</strong><a class="headerlink" href="#claude-37-sonnet" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>模型能力</strong>：本身支持「快速推理」和「Extended Thinking」两种模式。</li>
+<li><strong>思路</strong>：它在<strong>模型内部</strong>提供了“可长可短”的推理机制，开发者可通过 API 或 UI 指令切换，让同一模型在不同问题上自动适配思考深度。</li>
+<li><strong>粒度</strong>：运行时，模型可以根据设置的“思考预算”决定要不要展开更长的 reasoning。</li>
+</ul>
+<hr />
+<h2 id="routing-by-question-attributes"><strong>Routing by Question Attributes</strong><a class="headerlink" href="#routing-by-question-attributes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>方法论</strong>：这是综述里“输入端 Prompt-based 效率方法”之一。</li>
+<li><strong>思路</strong>：<strong>不改模型</strong>，而是在输入 prompt 阶段，先对问题做属性分类（难易度/任务类型/解释需求），然后把问题<strong>路由到不同的推理 prompt 或模式</strong>。</li>
+<li><strong>粒度</strong>：属于外部策略，靠前置判断“这题要不要启用长 CoT”。</li>
+</ul>
+<hr />
+<h2 id="_1"><strong>关系</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>互补</strong>：</p>
+</li>
+<li>
+<p>Claude 3.7 Sonnet 提供了<strong>内部能力</strong>（短思考 vs 深思考）。</p>
+</li>
+<li>Routing by Question Attributes 提供了<strong>外部调度策略</strong>（哪些题触发深思考）。</li>
+<li>
+<p><strong>结合方式</strong>：</p>
+</li>
+<li>
+<p>在实际系统里，可以用“问题属性分类器/Prompt”判断题目难度。</p>
+</li>
+<li>如果问题简单 → 调用 Claude 3.7 的快速模式。</li>
+<li>如果问题复杂 → 调用其 Extended Thinking 模式。</li>
+<li>即 <strong>路由 = 策略</strong>，<strong>Claude 3.7 = 执行工具</strong>。</li>
+</ul>
+<hr />
+<p>要不要我给你画一张 <strong>系统流程图</strong>，把“问题 → 属性识别 → 路由策略 → Claude 3.7 快速/深度模式”的组合关系画出来？</p>
+<hr />
+<p>Claude 3.7 Sonnet 的“混合推理”不是靠单一 trick，而是把几类机制整合在一起。总结它到底是 <strong>怎么做的</strong>：</p>
+<hr />
+<h2 id="1"><strong>1. 双模式架构</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Fast Mode</strong>：像普通聊天模型一样直接给出结果，追求低延迟。</li>
+<li><strong>Extended Thinking Mode</strong>：在解码时允许模型生成更长的“隐式推理序列”，类似于长 CoT，只是这些推理步骤对用户隐藏或折叠展示。</li>
+<li><strong>机制</strong>：API/前端允许开发者设置 <em>thinking budget</em>（比如 2 秒 / N tokens），模型在预算内生成中间 reasoning，再产出答案【web†source】。</li>
+</ul>
+<hr />
+<h2 id="2-thinking-budget"><strong>2. 思考预算 (Thinking Budget)</strong><a class="headerlink" href="#2-thinking-budget" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>开发者可指定推理时长或 token 限制：</p>
+</li>
+<li>
+<p><strong>小预算</strong> → 模型只走浅层推理，快速给答。</p>
+</li>
+<li><strong>大预算</strong> → 模型展开更深 reasoning，类似 self-consistency / CoT。</li>
+<li>本质上相当于<strong>在解码 loop 中内置 early stop /继续</strong>的开关【web†source】。</li>
+</ul>
+<hr />
+<h2 id="3-latent-cot"><strong>3. 内部隐式推理 (Latent CoT)</strong><a class="headerlink" href="#3-latent-cot" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Claude 3.7 在 Extended Thinking 时会生成更长的 <strong>隐式 reasoning traces</strong>，这些通常不全部暴露给用户，只在必要时展示“折叠思考过程”。</li>
+<li>相比传统明文 CoT，它的推理步骤更压缩、结构化，减少了 token 开销和冗余。</li>
+</ul>
+<hr />
+<h2 id="4"><strong>4. 混合调度</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>路由逻辑</strong>：模型根据问题难度和上下文，自动决定要不要启用更长 reasoning。</li>
+<li><strong>用户控制</strong>：可以通过参数强制要求 deep thinking，也可以默认让模型自己判断。</li>
+<li><strong>本质</strong>：一种内置的 “Routing by Question Attributes” + “Dynamic Reasoning Paradigm”。</li>
+</ul>
+<hr />
+<h2 id="5"><strong>5. 性能实现</strong><a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>通过大规模指令微调 (SFT) + RLHF，教会模型在不同 budget 下输出不同风格：</p>
+</li>
+<li>
+<p><strong>小 budget 数据</strong>：快速直答。</p>
+</li>
+<li><strong>大 budget 数据</strong>：完整 CoT、长 reasoning。</li>
+<li>在训练和推理时，模型学到“如何根据 budget 约束控制 reasoning token”。</li>
+</ul>
+<hr />
+<p>✅ <strong>总结</strong>：Claude 3.7 Sonnet 的核心做法 = <strong>双模式解码</strong> + <strong>思考预算控制</strong> + <strong>隐式长链 reasoning</strong>。
+它本质上就是在模型里内置了一个“推理长度控制器”，既可以当普通对话模型用，也能一键切换成长推理模型。</p>
+<hr />
+<p>要不要我帮你写一个 <strong>伪代码/流程图</strong>，展示 Claude 3.7 在解码时如何根据 <em>thinking budget</em> 决定走 Fast path 还是 Extended path？</p>
 
 
 

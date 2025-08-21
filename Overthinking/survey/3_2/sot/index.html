@@ -57,6 +57,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1458,6 +1463,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1473,9 +1480,67 @@
 
 
 
-  <h1>Sot</h1>
-
-
+<p>好的。我来详细解释 <strong>SoT [4] = Selection-of-Thoughts</strong>，它在综述里被归为一种 <strong>基于一致性 / selective reasoning</strong> 的高效推理方法。</p>
+<hr />
+<h1 id="1">1. 背景<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>问题</strong>：普通 <em>Chain-of-Thought</em> (CoT) 或 <em>Self-Consistency</em> (SC) 需要生成很多完整推理链，再多数投票，成本高。</li>
+<li><strong>目标</strong>：在这些候选思维链里，<strong>只保留最有希望的部分</strong>，减少无用链的生成，提升效率。</li>
+</ul>
+<hr />
+<h1 id="2">2. 核心机制<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<p>SoT 的核心思想是：</p>
+<ol>
+<li><strong>先生成一批候选推理路径</strong>（可能不完整）。</li>
+<li><strong>对每条路径进行评估</strong>（用 reward model、embedding consistency、或信心度）。</li>
+<li><strong>选择一小部分高质量思维</strong>继续扩展，其余丢弃。</li>
+<li>最终从被保留的“精选推理”中投票/合并出答案。</li>
+</ol>
+<p>换句话说，SoT 就是 <strong>在推理链中间进行“选择性筛查”</strong>，而不是等所有链都跑完才投票。</p>
+<hr />
+<h1 id="3">3. 方法要点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<ul>
+<li>
+<p><strong>筛选信号</strong>：</p>
+</li>
+<li>
+<p>可用 reward model（PRM）打分。</p>
+</li>
+<li>或计算 embedding 相似度（越一致越靠谱）。</li>
+<li>或基于不确定性（熵、置信度）。</li>
+<li>
+<p><strong>选择时机</strong>：</p>
+</li>
+<li>
+<p>可以在<strong>中间步骤</strong>筛选（逐步 pruning）。</p>
+</li>
+<li>也可以在<strong>完整链生成后</strong>再筛选。</li>
+<li><strong>最终决策</strong>：通常保留 K 条最优链，做 Self-Consistency 投票或直接选最高分答案。</li>
+</ul>
+<hr />
+<h1 id="4">4. 优势<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>比 Self-Consistency 更省</strong>：不用生成几十条全链，只需在早期就丢弃劣质样本。</li>
+<li><strong>比 BoN 更智能</strong>：不是简单取前 N，而是有选择性地“留优去劣”。</li>
+<li><strong>可叠加</strong>：SoT 能与 Token-Budget、ST-BoN 等结合，进一步压缩。</li>
+</ul>
+<hr />
+<h1 id="5">5. 与相关方法对比<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>SC (Self-Consistency)</strong>：全量生成 + 多数投票。</li>
+<li><strong>SoT</strong>：部分生成 + 选择性保留，更高效。</li>
+<li><strong>ST-BoN</strong>：基于 embedding 一致性早停低质样本，属于 SoT 的一种具体实现。</li>
+</ul>
+<hr />
+<h1 id="6">6. 适用场景<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>数理推理、代码生成</strong>：候选路径分歧大时，SoT 能快速丢弃“明显错误”的。</li>
+<li><strong>算力受限的部署</strong>：相比 SC，SoT 在 token 成本与准确率间更平衡。</li>
+</ul>
+<hr />
+<p>✅ <strong>总结</strong>：SoT (Selection-of-Thoughts) = “在思维链里做早期甄选”。它不是全量生成，而是用奖励/一致性/置信度信号，<strong>动态挑出少数优质推理链</strong>继续扩展，达到<strong>比 SC 更高效的准确率–token 权衡</strong>。</p>
+<hr />
+<p>要不要我帮你整理一张表，把 <strong>SoT / SC / ST-BoN</strong> 的“生成量、筛选方式、适用场景”并排对比？</p>
 
 
 
