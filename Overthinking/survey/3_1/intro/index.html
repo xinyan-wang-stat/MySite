@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1257,6 +1262,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1476,6 +1483,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1491,9 +1500,75 @@
 
 
 
-  <h1>Intro</h1>
-
-
+<p><strong>Input Prompts-based: Prompt-Guided Efficient Reasoning</strong> 是综述里“输入端”效率类方法之一。它的思路很直接：<strong>通过设计提示词（prompts），让模型在推理时自觉控制长度、减少冗余</strong>，不需要改模型或额外训练。</p>
+<hr />
+<h1 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>问题</strong>：普通 <em>Chain-of-Thought (CoT)</em> 提示会让模型倾向于生成很长的解释，导致 token 成本高。</li>
+<li><strong>目标</strong>：利用 <strong>prompt 工程</strong> 在输入阶段约束模型输出，从源头减少过长或无效的推理。</li>
+</ul>
+<hr />
+<h1 id="_2">代表方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p><strong>Chain of Draft (CoD)</strong></p>
+</li>
+<li>
+<p>提示模型“逐步思考，但每步只保留几个词的草稿”。</p>
+</li>
+<li>每步最多 N 个词，最后在 <code>####</code> 后输出答案。</li>
+<li>
+<p>效果：保留逻辑骨架，显著压缩 token 数，同时不大幅损失准确率。</p>
+</li>
+<li>
+<p><strong>CCoT（Concise CoT）</strong></p>
+</li>
+<li>
+<p>提示模型“保持简洁推理”。</p>
+</li>
+<li>
+<p>不强制设定每步词数，而是鼓励输出更短、更精炼的思维链。</p>
+</li>
+<li>
+<p><strong>Token-Budget Prompting</strong></p>
+</li>
+<li>
+<p>在 prompt 中给定 <strong>token 预算</strong>（如“请在 30 token 内完成推理”）。</p>
+</li>
+<li>
+<p>模型需在预算内完成 CoT，强制长度约束。</p>
+</li>
+<li>
+<p><strong>Instruction-based Length Control</strong></p>
+</li>
+<li>
+<p>明确告诉模型：“只写关键步骤，避免冗余解释”。</p>
+</li>
+<li>有时结合 few-shot 示例，展示短链路答案作为模仿范例。</li>
+</ol>
+<hr />
+<h1 id="_3">特点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>训练无关</strong>：只需修改提示，部署方便。</li>
+<li><strong>透明性强</strong>：用户能清楚看到 prompt 如何引导输出。</li>
+<li><strong>可组合</strong>：可与 RL 或自一致性投票结合，进一步降成本。</li>
+</ul>
+<hr />
+<h1 id="_4">与其他类别的对比<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Prompt-guided</strong>：从输入端约束输出（最轻量）。</li>
+<li><strong>Model-guided</strong>：修改模型架构（如 early exit）。</li>
+<li><strong>Output-guided</strong>：在解码阶段动态筛选、截断或压缩。</li>
+</ul>
+<hr />
+<h1 id="_5">局限<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>依赖模型对指令的服从度</strong>：有些模型可能仍生成冗长推理。</li>
+<li><strong>压缩过度风险</strong>：若 prompt 过严，可能损失关键信息。</li>
+<li><strong>任务依赖性</strong>：不同任务需要不同的 prompt 模板调优。</li>
+</ul>
+<hr />
+<p>要不要我帮你整理一份 <strong>Prompt 模板集合</strong>（CoD、Token-Budget、简洁CoT），直接给你可用的英文指令，可以放进推理任务里实验？</p>
 
 
 

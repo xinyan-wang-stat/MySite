@@ -57,6 +57,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1458,6 +1463,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1473,9 +1480,94 @@
 
 
 
-  <h1>Intro</h1>
-
-
+<p><strong>Input Prompts-based: Routing by Question Attributes</strong> 是综述里输入端效率优化的一类方法。它的核心思想是：<strong>在推理前，根据问题的属性（难度、类型、领域等），选择合适的推理策略或模型</strong>，而不是“一刀切”地对所有问题都生成完整、冗长的推理链。</p>
+<hr />
+<h1 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li>
+<p><strong>问题</strong>：大多数问题其实不需要长 CoT。</p>
+</li>
+<li>
+<p>简单算术、事实性问答 → 直接输出即可。</p>
+</li>
+<li>难题 → 需要长链推理。</li>
+<li><strong>目标</strong>：用“问题属性”作为路由信号，把不同问题送到不同的推理路径，从而降低整体推理开销。</li>
+</ul>
+<hr />
+<h1 id="_2">路由方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p><strong>按难度路由</strong></p>
+</li>
+<li>
+<p>在 prompt 或外部分类器里，先估计题目难度。</p>
+</li>
+<li>简单题直接回答；难题触发 CoT。</li>
+<li>
+<p>例如：</p>
+<blockquote>
+<p>“If the question is simple, answer directly. If complex, reason step by step.”</p>
+</blockquote>
+</li>
+<li>
+<p><strong>按任务类型路由</strong></p>
+</li>
+<li>
+<p>数学题 → 启用 CoT；常识 QA → 直接回答。</p>
+</li>
+<li>
+<p>可通过规则（关键词）或轻量模型判别。</p>
+</li>
+<li>
+<p><strong>按领域路由</strong></p>
+</li>
+<li>
+<p>不同学科（数学/代码/常识）配不同 prompt 模板。</p>
+</li>
+<li>
+<p>避免通用 CoT 模板在所有任务上浪费 token。</p>
+</li>
+<li>
+<p><strong>按所需解释度</strong></p>
+</li>
+<li>
+<p>用户问题若明确要求解释 → 触发长 CoT。</p>
+</li>
+<li>若只要答案 → 走简短响应。</li>
+</ol>
+<hr />
+<h1 id="_3">特点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>训练无关</strong>：仅靠输入 prompt 或前置分类器即可实现。</li>
+<li><strong>节省算力</strong>：避免所有问题都跑长链 CoT。</li>
+<li><strong>灵活组合</strong>：可与 CoD、Token-Budget 等 prompt 策略叠加。</li>
+</ul>
+<hr />
+<h1 id="_4">优缺点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<ul>
+<li>
+<p><strong>优点</strong>：</p>
+</li>
+<li>
+<p>显著减少平均 reasoning token 数。</p>
+</li>
+<li>可解释，规则清晰。</li>
+<li>
+<p><strong>缺点</strong>：</p>
+</li>
+<li>
+<p>路由信号可能不可靠（难度预测出错 → 错误路由）。</p>
+</li>
+<li>不同任务需要调试路由条件。</li>
+</ul>
+<hr />
+<h1 id="_5">使用场景<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<ul>
+<li>在线问答系统（大部分问题很简单，少部分需要深推理）。</li>
+<li>混合推理环境（有多个 prompt 模板/模型，需动态选择）。</li>
+</ul>
+<hr />
+<p>要不要我帮你写几个 <strong>可直接使用的 prompt 模板</strong>，比如“难度感知路由”和“任务类型路由”，方便你实验？</p>
 
 
 

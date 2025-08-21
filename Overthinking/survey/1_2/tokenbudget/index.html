@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -704,6 +709,8 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
@@ -1476,6 +1483,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1491,9 +1500,112 @@
 
 
 
-  <h1>Token-Budget</h1>
+<p><strong>结论</strong>：Token-Budget [37] 用<strong>提示词里的“token 预算”</strong>硬性约束推理长度，并配合<strong>预算估计</strong>把冗余 CoT 压到最小，在基本不掉准确率的前提下降本增效。</p>
+<h1 id="_1">核心机制<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li>在 prompt 中设置预算，让模型“在 ≤B 个 token 内完成推理”。</li>
+<li>先<strong>估计最优预算</strong>，再按该预算生成更短的 CoT；论文给出<strong>二分搜索</strong>找最优预算的做法。</li>
+<li>属于“推理中获取压缩CoT数据”的一类：边解边收集短链路样本以做后续SFT或直接用。</li>
+</ul>
+<h1 id="_2">预算估计与提示模板<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>零样本估计</strong>（TALE-EP 结合使用）：先让模型自报“完成此题所需最少 token 数”的预算，再用此预算约束推理。</li>
+<li>
+<p><strong>示例模板</strong>：</p>
+</li>
+<li>
+<p>预算估计：<code>Analyze... estimate the minimum tokens... Please reply: Budget: [[12]].</code></p>
+</li>
+<li>约束推理：<code>Let's think step by step and use less than &lt;Token-Budget&gt; tokens.</code>&#x20;</li>
+</ul>
+<h1 id="_3">实施流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ol>
+<li>估预算 <span class="arithmatex">\(B\)</span>（零样本/经验或二分搜索）。</li>
+<li>用“≤B token”提示生成答案与简短CoT。</li>
+<li>收集“短CoT+答案”作为变长CoT数据，做SFT或直接上线。</li>
+</ol>
+<h1 id="_4">何时有效<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<ul>
+<li>多数样本并不需要长链路，且服务侧有<strong>时延/成本</strong>约束。</li>
+<li>与 CoD、CCoT 等可叠加，进一步控长。</li>
+</ul>
+<h1 id="_5">风险与对策<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<ul>
+<li>预算过小→漏关键信息：放宽 <span class="arithmatex">\(B\)</span> 或引入<strong>自适应预算</strong>重试；</li>
+<li>不同任务预算差异大：分任务/难度设不同起始区间再二分。</li>
+</ul>
+<h1 id="tale-ep"><strong><em>TALE-EP</em></strong><a class="headerlink" href="#tale-ep" title="Permanent link">&para;</a></h1>
+<p>我来把 <strong>TALE-EP</strong> 的完整流程拆解成可执行的几个环节，你能看到它到底是“怎么做”的：</p>
+<hr />
+<h2 id="1-tale"><strong>1. 预算估计 (TALE 部分)</strong><a class="headerlink" href="#1-tale" title="Permanent link">&para;</a></h2>
+<p><strong>目的</strong>：先给一个粗略的“token预算”，让模型心里有数。</p>
+<ul>
+<li><strong>提示模板</strong>：</li>
+</ul>
+<p><code>Analyze the problem carefully and estimate the minimum number of reasoning tokens required to solve it. 
+  Please reply in the format: Budget: [[XX]]</code>
+* <strong>模型输出</strong>：例如 <code>Budget: [[28]]</code>。
+* <strong>解释</strong>：这里的“28”就是模型认为需要的 token 数，它会指导下一阶段推理。</p>
+<hr />
+<h2 id="2-ep"><strong>2. 推理生成 + 熵监控 (EP 部分)</strong><a class="headerlink" href="#2-ep" title="Permanent link">&para;</a></h2>
+<p><strong>目的</strong>：在生成推理链的过程中，动态判断要不要停。</p>
+<ul>
+<li><strong>逐 token 解码</strong>：模型每生成一个 token，就有一个预测分布 <span class="arithmatex">\(p_t\)</span>。</li>
+<li><strong>计算熵</strong>：</li>
+</ul>
+<p>$$
+  H_t = - \sum_i p_t(i) \log p_t(i)
+  $$</p>
+<ul>
+<li><strong>低熵</strong>：模型对当前 token 非常自信。</li>
+<li><strong>高熵</strong>：模型对当前 token 不确定。</li>
+</ul>
+<hr />
+<h2 id="3-early-stop"><strong>3. Early Stop 决策</strong><a class="headerlink" href="#3-early-stop" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>条件</strong>：如果连续若干步熵 <span class="arithmatex">\(H_t\)</span> 都低于某个阈值 <span class="arithmatex">\(\delta\)</span>（比如 0.5），说明模型对后续内容已经很自信。</li>
+<li><strong>动作</strong>：提前结束推理链，直接输出答案。</li>
+<li><strong>若不满足条件</strong>：继续生成，直到达到预算上限或解码结束符。</li>
+</ul>
+<hr />
+<h2 id="4"><strong>4. 最终答案输出</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>输出时往往有一个明确的分隔符（例如 <code>####</code>），保证答案与思维链分离。</li>
+<li>
+<p><strong>完整逻辑</strong>：</p>
+</li>
+<li>
+<p>简单题：预算估计小 + 熵快速下降 → 很快 early stop。</p>
+</li>
+<li>难题：预算大 + 熵波动高 → 模型会写更长的推理链。</li>
+</ul>
+<hr />
+<h2 id="_6"><strong>实现伪代码</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">budget</span> <span class="o">=</span> <span class="n">estimate_budget</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>   <span class="c1"># TALE 估计</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">low_entropy_count</span> <span class="o">=</span> <span class="mi">0</span>
 
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">budget</span><span class="p">):</span>
+    <span class="n">token</span><span class="p">,</span> <span class="n">prob_dist</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate_next</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">prob_dist</span><span class="p">)</span>
+    <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 
+    <span class="k">if</span> <span class="n">H</span> <span class="o">&lt;</span> <span class="n">delta</span><span class="p">:</span>
+        <span class="n">low_entropy_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">low_entropy_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">if</span> <span class="n">low_entropy_count</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">:</span>   <span class="c1"># 连续 k 步低熵</span>
+        <span class="k">break</span>
+
+<span class="n">answer</span> <span class="o">=</span> <span class="n">format_output</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<p>✅ <strong>总结</strong>：
+TALE-EP 先 <strong>估预算</strong>，再用 <strong>熵信号</strong>做“停不停”的判断。它等于在推理过程中加了一层“刹车系统”，既不会无限啰嗦，也不会太早停。</p>
+<hr />
+<p>要不要我帮你写一个 <strong>PyTorch版的最小实验代码</strong>，演示如何在推理时实时计算 token 熵并触发 early stop？</p>
 
 
 

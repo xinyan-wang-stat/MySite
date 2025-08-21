@@ -1590,6 +1590,69 @@ reasoning steps after full-length reasoning, either by heuristic criterion or LL
 by prompting LLMs to generate short reasoning steps during inference and reasoning, as proposed
 in [70], [82], [37], and [79].</p>
 <h1 id="2-fine-tuning-approaches">2. Fine-Tuning Approaches<a class="headerlink" href="#2-fine-tuning-approaches" title="Permanent link">&para;</a></h1>
+<hr />
+<p>好的。我来系统梳理 <strong>“Constructing Variable-Length CoT Reasoning Datasets”</strong> 这一研究思路。</p>
+<hr />
+<h1 id="_1">研究动机<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li>
+<p><strong>固定长度 CoT 问题</strong>：现有 CoT 数据集大多只保留单一“全长推理链”。</p>
+</li>
+<li>
+<p>弊端：模型学习不到“不同长度推理”的权衡，容易过度生成或不足。</p>
+</li>
+<li><strong>目标</strong>：构造 <strong>可变长度推理数据集</strong>，让模型能学习在<strong>不同推理深度下</strong>保持正确，并学会自适应控制长度。</li>
+</ul>
+<hr />
+<h1 id="_2">构造方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<ol>
+<li><strong>基础数据</strong>：从现有数学、逻辑或 QA 数据集中，收集包含 <strong>完整推理链</strong> 的样本。</li>
+<li>
+<p><strong>截断生成</strong>：</p>
+</li>
+<li>
+<p>将完整 CoT 在不同步数/位置截断，形成<strong>不同长度的子推理链</strong>。</p>
+</li>
+<li>保留“部分思维 + 最终答案”或“部分思维 + 中间结论”。</li>
+<li>
+<p><strong>可变长度标注</strong>：</p>
+</li>
+<li>
+<p>标注每条子链的长度（短 / 中 / 长）。</p>
+</li>
+<li>在训练时显式提示“生成长度”或隐式让模型从多样本中学习。</li>
+<li>
+<p><strong>多视角构造</strong>：</p>
+</li>
+<li>
+<p><strong>增量式</strong>：逐步添加思维步，得到不同长度版本。</p>
+</li>
+<li><strong>压缩式</strong>：人为合并、概括，形成更短的“简洁链路”。</li>
+<li><strong>最终数据集</strong>：对每个问题，提供 <strong>多条推理路径</strong>（短、中、长），共同构成“可变长度训练样本”。</li>
+</ol>
+<hr />
+<h1 id="_3">训练/应用方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>SFT</strong>：让模型在不同长度链上学习生成。</li>
+<li><strong>条件控制</strong>：输入中加入“长度指令”，如 <em>short reasoning</em>, <em>medium reasoning</em>。</li>
+<li><strong>RL 或奖励建模</strong>：在可变链上定义 <strong>长度–准确率权衡的奖励</strong>，训练模型学会“够用就停”。</li>
+</ul>
+<hr />
+<h1 id="_4">优势<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>多样性</strong>：提供不同深度的推理范例。</li>
+<li><strong>长度鲁棒性</strong>：模型不再只会“长链路”，而是学会在短链路下保持正确率。</li>
+<li><strong>下游可控</strong>：可结合“长度预算 / token 限制”，灵活应用。</li>
+</ul>
+<hr />
+<h1 id="_5">典型应用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>可变长度 CoT 控制</strong> (Variable-length CoT control)：根据算力预算/时延约束，动态选择短链或长链。</li>
+<li><strong>数据蒸馏</strong>：用强模型生成不同深度 CoT，训练小模型。</li>
+<li><strong>效率优化</strong>：配合方法如 Chain of Draft、Length-filtered Vote，提升推理效率。</li>
+</ul>
+<hr />
+<p>要不要我帮你整理一个 <strong>数据构造 pipeline 图</strong>（原始问题 → 全长 CoT → 截断/压缩 → 多版本子链 → 数据集）？这样能直观看到“变量长数据集”的生成过程。</p>
 
 
 

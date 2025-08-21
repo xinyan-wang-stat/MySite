@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -958,6 +963,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1476,6 +1483,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1491,9 +1500,59 @@
 
 
 
-  <h1>Intro</h1>
-
-
+<p><strong>Output-based: Dynamic Reasoning Paradigm</strong> 属于综述中“输出端的效率方法”。它强调：<strong>不要总是生成固定长度的完整推理链</strong>，而是让模型在 <strong>推理过程中动态决定“生成多少、生成什么形式”</strong>，从而减少冗余 token，提升效率。</p>
+<hr />
+<h1 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>传统 CoT</strong>：每个问题都生成一整条长推理链，token 开销大，且不一定总能提升准确率。</li>
+<li><strong>目标</strong>：在输出端实现 <strong>自适应推理</strong>——根据问题难度和当前置信度，决定推理链的 <strong>长度</strong>、<strong>内容形式</strong>（自然语言 or 压缩摘要）甚至 <strong>结构</strong>。</li>
+</ul>
+<hr />
+<h1 id="_2">典型机制<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p><strong>动态长度控制</strong></p>
+</li>
+<li>
+<p>模型在生成过程中监测不确定性（熵、PRM 得分等）。</p>
+</li>
+<li>若已足够自信则 <strong>提前终止</strong>；若不确定则继续展开。</li>
+<li>
+<p>例子：<strong>TALE-EP</strong> 用 token-level 熵做 early stop；<strong>Dynasor-CoT</strong> 用 Certaindex 控制是否继续生成。</p>
+</li>
+<li>
+<p><strong>压缩式推理</strong></p>
+</li>
+<li>
+<p>生成中途把长链压缩为更短的 <strong>摘要 token</strong>，继续在摘要上展开。</p>
+</li>
+<li>
+<p>例子：<strong>LightThinker</strong> 训练 LLM 学会何时/如何压缩成 gist tokens；<strong>InftyThink</strong> 每步生成后立即摘要，只保留滚动摘要，避免上下文爆炸。</p>
+</li>
+<li>
+<p><strong>自截断与筛选</strong></p>
+</li>
+<li>
+<p>并行采样时，用一致性或置信度指标提前筛掉无前途的样本。</p>
+</li>
+<li>例子：<strong>ST-BoN</strong> 用 embedding 一致性提前截断低质量样本。</li>
+</ol>
+<hr />
+<h1 id="_3">优势<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>节省 token</strong>：对简单题可大幅缩短输出。</li>
+<li><strong>动态适应</strong>：复杂题仍能展开更多推理。</li>
+<li><strong>通用性</strong>：训练无关或轻量微调即可用。</li>
+</ul>
+<hr />
+<h1 id="_4">与其它类别对比<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Input-based</strong>：通过 prompt 设计减少不必要的思维（如少量提示、指令约束）。</li>
+<li><strong>Model-based</strong>：在模型内部改结构（如 early exit、动态层）。</li>
+<li><strong>Output-based</strong>（这里）则直接在 <strong>生成结果层面</strong>做动态调节，最贴近最终推理输出。</li>
+</ul>
+<hr />
+<p>要不要我帮你做一张 <strong>“Output-based Dynamic Reasoning 方法图谱”</strong>，把 TALE-EP、LightThinker、InftyThink、ST-BoN 这些方法放进去，用箭头表示它们分别解决“长度控制 / 压缩 / 筛选”的不同子方向？</p>
 
 
 
