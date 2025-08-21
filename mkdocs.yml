@@ -1,8 +1,64 @@
 site_name: MySite
 theme:
   name: material
-  
+
 nav:
   - Home: index.md
-  - Guide: guide/
-  - API: api/
+  - Overthinking:
+      - Comparasion: Overthinking/comparasion.md
+      - Survey:
+          - Roadmap: Overthinking/survey/roadmap.md
+          - "1.1 Model-based: RL Optimization via Length Reward":
+              - Intro: Overthinking/survey/1_1/intro.md
+              - O1: Overthinking/survey/1_1/o1.md
+              - L1: Overthinking/survey/1_1/L1.md
+              - Kimi: Overthinking/survey/1_1/kimi.md
+              - DAST: Overthinking/survey/1_1/dast.md
+              - Training: Overthinking/survey/1_1/training.md
+          - "1.2 Model-based: SFT with Variable-Length CoT":
+              - Intro: Overthinking/survey/1_2/intro.md
+              - Distilling2-1: Overthinking/survey/1_2/distill.md
+              - C3oT: Overthinking/survey/1_2/c3ot.md
+              - TokenSkip: Overthinking/survey/1_2/tokenskip.md
+              - Learn to Skip: Overthinking/survey/1_2/learntoskip.md
+              - Self-Training: Overthinking/survey/1_2/selftraining.md
+              - Token-Budget: Overthinking/survey/1_2/tokenbudget.md
+              - CoT-Valve:  Overthinking/survey/1_2/cotvalve.md
+          - "2.1 Ouput-based: Latent Representation Compression":
+              - Intro: Overthinking/survey/2_1/intro.md
+              - Coconut: Overthinking/survey/2_1/coconut.md
+              - CODI: Overthinking/survey/2_1/codi.md
+              - CCoT: Overthinking/survey/2_1/ccot.md
+              - SoftCoT: Overthinking/survey/2_1/softcot.md
+          - "2.2 Output-based: Dynamic Reasoning Paradigm":
+              - Intro: Overthinking/survey/2_2/intro.md
+              - Speculative Rejection: Overthinking/survey/2_2/speculative.md
+              - Reward-Guided Speculative Decoding (RSD): Overthinking/survey/2_2/rsd.md
+              - Dynamic Parallel Tree Search (DPTS): Overthinking/survey/2_2/dpts.md
+              - Dynasor/Certaindex (Certaindex-based Scheduling): Overthinking/survey/2_2/certaindex.md
+              - FastMCTS: Overthinking/survey/2_2/fastmcts.md
+              - Length-filtered Vote: Overthinking/survey/2_2/lengthfiltered.md
+              - Self-Truncation Best-of-N (ST-BoN): Overthinking/survey/2_2/stbon.md
+              - LightThinker: Overthinking/survey/2_2/lightthinker.md
+              - InftyThink: Overthinking/survey/2_2/inftythinker.md
+              - Sampling-Efficient TTS: Overthinking/survey/2_2/samplingefficient.md
+          - "3.1 Input Prompts-based: Prompt-Guided Efficient Reasoning":
+              - Intro: Overthinking/survey/3_1/intro.md
+              - Token-Budget: Overthinking/survey/3_1/tokenbudget.md
+              - Chain of Draft: Overthinking/survey/3_1/chainofdraft.md
+              - TALE-EP: Overthinking/survey/3_1/taleep.md
+          - "3.2 Input Prompts-based: Routing by Question Attributes":
+              - Claude 3.7 Sonnet: Overthinking/survey/3_1/claude.md
+              - SoT: Overthinking/survey/3_1/sot.md
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
