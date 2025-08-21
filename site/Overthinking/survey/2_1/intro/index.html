@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -797,6 +802,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1476,6 +1483,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1491,9 +1500,67 @@
 
 
 
-  <h1>Intro</h1>
-
-
+<p>好的。我来介绍 <strong>Output-based: Latent Representation Compression</strong>（基于输出的潜在表征压缩），它在综述里被列为一种 <strong>输出端效率方法</strong>。</p>
+<hr />
+<h1 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>问题</strong>：传统 CoT 输出是冗长的自然语言推理链，token 多，推理和存储成本高。</li>
+<li><strong>思路</strong>：不直接生成完整推理文字，而是把推理过程映射为<strong>压缩的潜在向量表示</strong>，再由这些向量驱动后续解码或答案生成。</li>
+<li>属于 <strong>Output-based efficient reasoning</strong> 范式。</li>
+</ul>
+<hr />
+<h1 id="_2">核心机制<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p><strong>潜在表征生成</strong>：</p>
+</li>
+<li>
+<p>模型先在隐空间里生成“思维表示”（latent thoughts）。</p>
+</li>
+<li>
+<p>这些表示比自然语言推理短得多，可以是固定维度的向量或少量特殊 token。</p>
+</li>
+<li>
+<p><strong>压缩策略</strong>：</p>
+</li>
+<li>
+<p><strong>投影/蒸馏</strong>：用小模块（如投影层）将完整推理链映射到低维潜在表示。</p>
+</li>
+<li>
+<p><strong>Gist tokens</strong>：只保留少量摘要 token，替代冗长链路。</p>
+</li>
+<li>
+<p><strong>解码/答案生成</strong>：</p>
+</li>
+<li>
+<p>主干 LLM 从潜在表示继续生成最终答案。</p>
+</li>
+<li>有时还会解码出简短理由，用于可解释性。</li>
+</ol>
+<hr />
+<h1 id="_3">代表方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Coconut</strong>：用连续 latent vectors 在隐空间推理，再映射回文本。</li>
+<li><strong>SoftCoT</strong>：外接小模型生成“软思维”隐状态，经投影注入主干 LLM。</li>
+<li><strong>CCoT</strong>：让模型在连续潜在空间“压缩推理轨迹”。
+  这些都属于 latent representation compression 的实例。</li>
+</ul>
+<hr />
+<h1 id="_4">优势<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>大幅减少 token 数</strong>：输出不再是几十甚至上百个推理词，而是少量 latent tokens。</li>
+<li><strong>效率高</strong>：推理和存储开销显著下降。</li>
+<li><strong>灵活</strong>：潜在表征可以跨任务重用，易集成。</li>
+</ul>
+<hr />
+<h1 id="_5">局限<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>可解释性弱</strong>：latent vectors 对人类不可读。</li>
+<li><strong>训练依赖</strong>：需要额外投影或蒸馏过程，构造合适的潜在空间。</li>
+<li><strong>稳定性</strong>：过度压缩可能损失关键信息，导致答案错误。</li>
+</ul>
+<hr />
+<p>要不要我帮你整理一张对比表，把 <strong>Coconut / SoftCoT / CCoT</strong> 三个 latent representation compression 方法的<strong>核心机制、训练方式、优缺点</strong>并排列出来？</p>
 
 
 
