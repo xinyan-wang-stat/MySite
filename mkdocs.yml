@@ -5,9 +5,15 @@ theme:
 nav:
   - Home: index.md
   - LLMs review: llm_review.md
-  - Alignment: alignment.md
-  - Adversarial learning: adv_learning.md
-  - LLM Security: llm_security.md
+  - LLM Security: 
+      - Alignment: llm_security/alignment.md
+      - Adversarial learning: llm_security/adv_learning.md
+      - Overview: llm_security/llm_security.md
+      - 1. Input-level Attacks: llm_security/input_level_attack.md
+      - 2. Training-level Attacks: llm_security/training_level_attack.md
+      - 3. Model-level Attacks: llm_security/model_level_attack.md
+      - 4. System-level Attacks: llm_security/system_level_attack.md
+      - 5. Output-level Attacks: llm_security/output_level_attack.md
   - Overthinking:
       - Comparasion: Overthinking/comparasion.md
       - Survey:
