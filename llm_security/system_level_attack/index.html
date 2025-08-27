@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../llm_security/output_level_attack/">
+        <link rel="prev" href="../model_level_attack/">
       
       
-        <link rel="next" href="../survey/roadmap/">
+        <link rel="next" href="../output_level_attack/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Comparasion - MySite</title>
+        <title>4. System-level Attacks - MySite</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#4-system-level-attacks" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Comparasion
+              4. System-level Attacks
             
           </span>
         </div>
@@ -235,18 +235,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -262,7 +264,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             LLM Security
@@ -276,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../llm_security/alignment/" class="md-nav__link">
+      <a href="../alignment/" class="md-nav__link">
         
   
   
@@ -299,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../llm_security/adv_learning/" class="md-nav__link">
+      <a href="../adv_learning/" class="md-nav__link">
         
   
   
@@ -322,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../llm_security/llm_security/" class="md-nav__link">
+      <a href="../llm_security/" class="md-nav__link">
         
   
   
@@ -345,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../llm_security/input_level_attack/" class="md-nav__link">
+      <a href="../input_level_attack/" class="md-nav__link">
         
   
   
@@ -368,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../llm_security/training_level_attack/" class="md-nav__link">
+      <a href="../training_level_attack/" class="md-nav__link">
         
   
   
@@ -391,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../llm_security/model_level_attack/" class="md-nav__link">
+      <a href="../model_level_attack/" class="md-nav__link">
         
   
   
@@ -411,10 +413,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../llm_security/system_level_attack/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    4. System-level Attacks
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -425,6 +449,71 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-rag-pipeline-poisoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 RAG Pipeline Poisoning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-data-leakage-via-logscache" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Data Leakage via Logs/Cache
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-cost-latency-abuse-efficiency-dos" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Cost / Latency Abuse (Efficiency DoS)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-api-misuse-abuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 API Misuse &amp; Abuse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-supply-chain-risks-model-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Supply Chain Risks (Model &amp; Data)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -437,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../llm_security/output_level_attack/" class="md-nav__link">
+      <a href="../output_level_attack/" class="md-nav__link">
         
   
   
@@ -464,20 +553,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -493,7 +580,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Overthinking
@@ -504,32 +591,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Comparasion
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Overthinking/comparasion/" class="md-nav__link">
         
   
   
@@ -540,71 +605,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-deepseek-r1-grpo" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. DeepSeek-R1 (GRPO 论文)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-stop-overthinking-a-survey" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Stop Overthinking: A Survey
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-on-the-overthinking-of-o1-like-llms" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. On the Overthinking of o1-Like LLMs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      对比总结
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      整体关系
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -655,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/roadmap/" class="md-nav__link">
+      <a href="../../Overthinking/survey/roadmap/" class="md-nav__link">
         
   
   
@@ -716,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_1/intro/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_1/intro/" class="md-nav__link">
         
   
   
@@ -739,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_1/o1/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_1/o1/" class="md-nav__link">
         
   
   
@@ -762,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_1/L1/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_1/L1/" class="md-nav__link">
         
   
   
@@ -785,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_1/kimi/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_1/kimi/" class="md-nav__link">
         
   
   
@@ -808,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_1/dast/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_1/dast/" class="md-nav__link">
         
   
   
@@ -831,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_1/training/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_1/training/" class="md-nav__link">
         
   
   
@@ -900,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_2/intro/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_2/intro/" class="md-nav__link">
         
   
   
@@ -923,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_2/distill/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_2/distill/" class="md-nav__link">
         
   
   
@@ -946,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_2/c3ot/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_2/c3ot/" class="md-nav__link">
         
   
   
@@ -969,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_2/tokenskip/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_2/tokenskip/" class="md-nav__link">
         
   
   
@@ -992,7 +992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_2/learntoskip/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_2/learntoskip/" class="md-nav__link">
         
   
   
@@ -1015,7 +1015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_2/selftraining/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_2/selftraining/" class="md-nav__link">
         
   
   
@@ -1038,7 +1038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_2/tokenbudget/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_2/tokenbudget/" class="md-nav__link">
         
   
   
@@ -1061,7 +1061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/1_2/cotvalve/" class="md-nav__link">
+      <a href="../../Overthinking/survey/1_2/cotvalve/" class="md-nav__link">
         
   
   
@@ -1130,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_1/intro/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_1/intro/" class="md-nav__link">
         
   
   
@@ -1153,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_1/coconut/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_1/coconut/" class="md-nav__link">
         
   
   
@@ -1176,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_1/codi/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_1/codi/" class="md-nav__link">
         
   
   
@@ -1199,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_1/ccot/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_1/ccot/" class="md-nav__link">
         
   
   
@@ -1222,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_1/softcot/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_1/softcot/" class="md-nav__link">
         
   
   
@@ -1291,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/intro/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/intro/" class="md-nav__link">
         
   
   
@@ -1314,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/speculative/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/speculative/" class="md-nav__link">
         
   
   
@@ -1337,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/rsd/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/rsd/" class="md-nav__link">
         
   
   
@@ -1360,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/dpts/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/dpts/" class="md-nav__link">
         
   
   
@@ -1383,7 +1383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/certaindex/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/certaindex/" class="md-nav__link">
         
   
   
@@ -1406,7 +1406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/fastmcts/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/fastmcts/" class="md-nav__link">
         
   
   
@@ -1429,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/lengthfiltered/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/lengthfiltered/" class="md-nav__link">
         
   
   
@@ -1452,7 +1452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/stbon/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/stbon/" class="md-nav__link">
         
   
   
@@ -1475,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/lightthinker/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/lightthinker/" class="md-nav__link">
         
   
   
@@ -1498,7 +1498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/inftythinker/" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/inftythinker/" class="md-nav__link">
         
   
   
@@ -1521,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/2_2/samplingefficient.md" class="md-nav__link">
+      <a href="../../Overthinking/survey/2_2/samplingefficient.md" class="md-nav__link">
         
   
   
@@ -1590,7 +1590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/3_1/intro/" class="md-nav__link">
+      <a href="../../Overthinking/survey/3_1/intro/" class="md-nav__link">
         
   
   
@@ -1613,7 +1613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/3_1/tokenbudget/" class="md-nav__link">
+      <a href="../../Overthinking/survey/3_1/tokenbudget/" class="md-nav__link">
         
   
   
@@ -1636,7 +1636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/3_1/chainofdraft/" class="md-nav__link">
+      <a href="../../Overthinking/survey/3_1/chainofdraft/" class="md-nav__link">
         
   
   
@@ -1659,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/3_1/taleep/" class="md-nav__link">
+      <a href="../../Overthinking/survey/3_1/taleep/" class="md-nav__link">
         
   
   
@@ -1728,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/3_1/claude.md" class="md-nav__link">
+      <a href="../../Overthinking/survey/3_1/claude.md" class="md-nav__link">
         
   
   
@@ -1751,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../survey/3_1/sot.md" class="md-nav__link">
+      <a href="../../Overthinking/survey/3_1/sot.md" class="md-nav__link">
         
   
   
@@ -1817,45 +1817,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-deepseek-r1-grpo" class="md-nav__link">
+  <a href="#41-rag-pipeline-poisoning" class="md-nav__link">
     <span class="md-ellipsis">
-      1. DeepSeek-R1 (GRPO 论文)
+      4.1 RAG Pipeline Poisoning
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-stop-overthinking-a-survey" class="md-nav__link">
+  <a href="#42-data-leakage-via-logscache" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Stop Overthinking: A Survey
+      4.2 Data Leakage via Logs/Cache
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-on-the-overthinking-of-o1-like-llms" class="md-nav__link">
+  <a href="#43-cost-latency-abuse-efficiency-dos" class="md-nav__link">
     <span class="md-ellipsis">
-      3. On the Overthinking of o1-Like LLMs
+      4.3 Cost / Latency Abuse (Efficiency DoS)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#44-api-misuse-abuse" class="md-nav__link">
     <span class="md-ellipsis">
-      对比总结
+      4.4 API Misuse &amp; Abuse
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#45-supply-chain-risks-model-data" class="md-nav__link">
     <span class="md-ellipsis">
-      整体关系
+      4.5 Supply Chain Risks (Model &amp; Data)
     </span>
   </a>
   
@@ -1877,130 +1877,142 @@
 
 
 
-<h1 id="_1">三篇文章比较<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="1-deepseek-r1-grpo"><strong>1. DeepSeek-R1 (GRPO 论文)</strong><a class="headerlink" href="#1-deepseek-r1-grpo" title="Permanent link">&para;</a></h2>
+<p>好的，下面系统梳理 <strong>4. System-level Attacks (Pipeline &amp; Deployment)</strong>。</p>
+<hr />
+<h1 id="4-system-level-attacks">4. System-level Attacks<a class="headerlink" href="#4-system-level-attacks" title="Permanent link">&para;</a></h1>
+<p>攻击目标不再是输入本身或模型参数，而是 <strong>LLM 应用的系统架构与运行管线</strong>：RAG、工具链、API 调用、日志、缓存、部署资源等。</p>
+<hr />
+<h2 id="41-rag-pipeline-poisoning">4.1 RAG Pipeline Poisoning<a class="headerlink" href="#41-rag-pipeline-poisoning" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>研究重点：</strong> 如何训练出具备强推理能力的大模型。</li>
+<li><strong>Goal</strong>: 投毒向量数据库或外部知识库。</li>
 <li>
-<p><strong>方法：</strong></p>
+<p><strong>Mechanism</strong>:</p>
 </li>
 <li>
-<p>提出 <strong>DeepSeek-R1-Zero</strong>：直接用 <strong>GRPO 强化学习</strong>，不依赖监督微调 (SFT)，证明了仅靠 RL 就能激发模型的推理能力。</p>
+<p>在网页/文档中插入恶意段落；</p>
 </li>
-<li>改进为 <strong>DeepSeek-R1</strong>：先做少量冷启动 SFT，再进行多阶段 RL + 拒绝采样，得到更稳定、更可读的推理模型。</li>
-<li><strong>蒸馏 (Distillation)</strong>：把大模型的推理模式迁移到小模型 (Qwen、Llama)，效果比直接在小模型上做 RL 更好。</li>
+<li>在 embedding 检索库中注入中毒文档。</li>
 <li>
-<p><strong>主要贡献：</strong></p>
+<p><strong>Impact</strong>:</p>
 </li>
 <li>
-<p>验证了 <strong>纯 RL 就能学出推理</strong>。</p>
+<p>模型在检索时获得被操纵的上下文 → Prompt Injection。</p>
 </li>
-<li>DeepSeek-R1 在 AIME、MATH-500、GPQA、Codeforces 等推理基准上性能可比 OpenAI o1。</li>
-<li>蒸馏后的小模型性能超越以往开源模型，证明大模型发现的推理模式可以有效传递。</li>
+<li>可诱导错误答案、信息泄露、效率滥用。</li>
+<li>
+<p><strong>Defense</strong>:</p>
+</li>
+<li>
+<p>Source trust scoring（来源信誉分级）。</p>
+</li>
+<li>Content sanitization（指令去除、释义改写）。</li>
+<li>Multi-source cross-check（多源一致性校验）。</li>
 </ul>
 <hr />
-<h2 id="2-stop-overthinking-a-survey"><strong>2. Stop Overthinking: A Survey</strong><a class="headerlink" href="#2-stop-overthinking-a-survey" title="Permanent link">&para;</a></h2>
+<h2 id="42-data-leakage-via-logscache">4.2 Data Leakage via Logs/Cache<a class="headerlink" href="#42-data-leakage-via-logscache" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>研究重点：</strong> 系统梳理 LLM <strong>高效推理 (Efficient Reasoning)</strong> 的研究进展。</li>
+<li><strong>Goal</strong>: 通过系统日志或缓存窃取敏感数据。</li>
 <li>
-<p><strong>问题背景：</strong></p>
+<p><strong>Mechanism</strong>:</p>
 </li>
 <li>
-<p>长链式推理 (CoT) 提升了正确率，但带来 <strong>“过度思考 (overthinking)”</strong>：推理过长、输出冗余、成本高。</p>
+<p>攻击者访问存储的 prompts、聊天记录、embedding cache。</p>
 </li>
-<li>例如，回答“2+3”这种问题，有些模型会输出上千 token 的推理过程。</li>
+<li>重复调用中暴露用户数据。</li>
+<li><strong>Impact</strong>: 用户隐私泄露，prompt 逆向。</li>
 <li>
-<p><strong>提出的分类 (研究路线图)：</strong></p>
-</li>
-<li>
-<p><strong>模型层面优化</strong>：RL + 长度奖励，SFT + 长短混合 CoT 数据。</p>
-</li>
-<li><strong>输出层面优化</strong>：压缩推理步骤，动态控制推理深度。</li>
-<li><strong>输入层面优化</strong>：基于题目难度进行路由，提示控制推理长度。</li>
-<li><strong>小模型与高效数据</strong>：蒸馏、剪枝、量化。</li>
-<li><strong>评测基准</strong>：如何衡量高效推理。</li>
-<li>
-<p><strong>贡献：</strong></p>
+<p><strong>Defense</strong>:</p>
 </li>
 <li>
-<p>第一篇系统性的 <strong>高效推理综述</strong>。</p>
+<p>Prompt/response 加密存储。</p>
 </li>
-<li>总结了数十种方法，并提出分类框架 + 公共资源库。</li>
+<li>数据最小化存储与自动清理。</li>
+<li>Access control 与 audit logging。</li>
 </ul>
 <hr />
-<h2 id="3-on-the-overthinking-of-o1-like-llms"><strong>3. On the Overthinking of o1-Like LLMs</strong><a class="headerlink" href="#3-on-the-overthinking-of-o1-like-llms" title="Permanent link">&para;</a></h2>
+<h2 id="43-cost-latency-abuse-efficiency-dos">4.3 Cost / Latency Abuse (Efficiency DoS)<a class="headerlink" href="#43-cost-latency-abuse-efficiency-dos" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>研究重点：</strong> 实证分析 <strong>o1 类模型 (o1, DeepSeek-R1, QwQ 等)</strong> 的过度思考问题。</li>
+<li><strong>Goal</strong>: 增加推理延迟、算力成本，类似拒绝服务攻击。</li>
 <li>
-<p><strong>发现：</strong></p>
+<p><strong>Mechanism</strong>:</p>
 </li>
 <li>
-<p>在简单题上往往生成冗余解答。</p>
+<p>Prompt 注入复杂推理任务（本文 Overthink 攻击）；</p>
 </li>
-<li>例如：“2+3=？”这种问题，QwQ 生成 <strong>13 个解法</strong>，token 数比普通模型高近 20 倍。</li>
-<li>过度思考更常见于 <strong>简单题</strong>，而难题并没有明显冗余。</li>
-<li><strong>90%+ 的正确答案其实在第一轮推理就已出现</strong>，后续步骤对正确率提升极小。</li>
+<li>批量提交超长上下文请求。</li>
+<li><strong>Impact</strong>: API 调用费用暴涨，推理吞吐率下降。</li>
 <li>
-<p><strong>提出指标：</strong></p>
-</li>
-<li>
-<p><strong>结果效率 (outcome efficiency)</strong>：额外推理是否提升了正确率？</p>
-</li>
-<li><strong>过程效率 (process efficiency)</strong>：解答中有多少冗余步骤？</li>
-<li>
-<p><strong>解决方法：</strong></p>
+<p><strong>Defense</strong>:</p>
 </li>
 <li>
-<p>基于自训练 (self-training) 和效率指标，对输出进行精简。</p>
+<p>Reasoning token budget / early stopping。</p>
 </li>
-<li>实验表明：在 MATH-500 上可减少 <strong>约 50% token</strong>，同时保持准确率不变。</li>
+<li>Abnormal latency detection。</li>
+<li>Rate limiting / request quota。</li>
 </ul>
 <hr />
-<h2 id="_2"><strong>对比总结</strong><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>方面</th>
-<th>DeepSeek-R1</th>
-<th>Stop Overthinking (综述)</th>
-<th>On Overthinking (实证)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>目标</strong></td>
-<td>训练能推理的大模型</td>
-<td>总结如何让推理更高效</td>
-<td>诊断并缓解过度思考</td>
-</tr>
-<tr>
-<td><strong>核心问题</strong></td>
-<td>如何“生出”推理</td>
-<td>如何“节省”推理</td>
-<td>为什么“推理浪费”</td>
-</tr>
-<tr>
-<td><strong>方法论</strong></td>
-<td>RL (GRPO)、冷启动 SFT、蒸馏</td>
-<td>RL + 长度奖励、SFT 数据、动态推理、prompt 路由</td>
-<td>效率指标 + 自训练精简</td>
-</tr>
-<tr>
-<td><strong>主要贡献</strong></td>
-<td>新模型 + 开源</td>
-<td>分类框架 + 全面综述</td>
-<td>实证 + 指标 + 减冗余方法</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_3"><strong>整体关系</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="44-api-misuse-abuse">4.4 API Misuse &amp; Abuse<a class="headerlink" href="#44-api-misuse-abuse" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>DeepSeek-R1</strong>：展示了如何通过 RL 和蒸馏 <strong>训练和构建推理能力</strong>。</li>
-<li><strong>Survey</strong>：提供了研究全景，讨论 <strong>如何提升推理效率</strong>。</li>
-<li><strong>Overthinking 实证</strong>：指出 <strong>效率问题的根源</strong>，并提出指标与解决方案。</li>
+<li><strong>Goal</strong>: 滥用 LLM 提供的 API，导致安全或财务问题。</li>
+<li>
+<p><strong>Mechanism</strong>:</p>
+</li>
+<li>
+<p>Prompt injection → 强迫 API 调用外部工具；</p>
+</li>
+<li>无限循环调用工具链。</li>
+<li><strong>Impact</strong>: 外部系统越权操作、资源消耗。</li>
+<li>
+<p><strong>Defense</strong>:</p>
+</li>
+<li>
+<p>Strict schema validation。</p>
+</li>
+<li>Tool permission isolation。</li>
+<li>Human-in-the-loop for sensitive actions。</li>
 </ul>
-<p>三篇文章互补：<strong>R1 提升能力 → 产生过度思考 → 综述梳理解决方法 → 实证提出指标与改进方案</strong>。</p>
+<hr />
+<h2 id="45-supply-chain-risks-model-data">4.5 Supply Chain Risks (Model &amp; Data)<a class="headerlink" href="#45-supply-chain-risks-model-data" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Goal</strong>: 利用模型依赖的第三方组件传播攻击。</li>
+<li>
+<p><strong>Mechanism</strong>:</p>
+</li>
+<li>
+<p>恶意开源模型权重；</p>
+</li>
+<li>中毒数据集发布。</li>
+<li><strong>Impact</strong>: 用户下载并直接部署受控模型。</li>
+<li>
+<p><strong>Defense</strong>:</p>
+</li>
+<li>
+<p>Model provenance verification（签名、哈希）。</p>
+</li>
+<li>Dataset lineage checks。</li>
+</ul>
+<hr />
+<h1 id="metrics-for-system-level-attacks">Metrics for System-level Attacks<a class="headerlink" href="#metrics-for-system-level-attacks" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Latency overhead multiplier。</li>
+<li>Cost escalation factor。</li>
+<li>Data leakage incidents。</li>
+<li>Retrieval poisoning success rate。</li>
+</ul>
+<hr />
+<h1 id="defensive-baselines">Defensive Baselines<a class="headerlink" href="#defensive-baselines" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Pipeline hardening</strong>：检索内容清洗、上下文沙箱。</li>
+<li><strong>Logging discipline</strong>：最小化存储、敏感信息脱敏。</li>
+<li><strong>Quota &amp; rate limiting</strong>：避免 DoS。</li>
+<li><strong>Permission isolation</strong>：工具和 API 调用分级授权。</li>
+<li><strong>Supply chain checks</strong>：签名验证、版本追溯。</li>
+</ul>
+<hr />
+<p>📌 总结：
+System-level Attacks 聚焦在 <strong>LLM 应用层面的攻击面</strong>：RAG 检索、缓存、API、工具链、模型供应链。核心风险是 <strong>被外部恶意数据操控 / 被资源滥用 / 被敏感数据泄露</strong>。</p>
+<hr />
+<p>要不要我继续整理 <strong>5. Output-level Risks (内容与行为)</strong>，这样就把 LLM Security 的五大类都捋完？</p>
 
 
 
