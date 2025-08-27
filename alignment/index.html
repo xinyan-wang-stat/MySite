@@ -9,22 +9,22 @@
       
       
       
-        <link rel="prev" href="../o1/">
+        <link rel="prev" href="../llm_review/">
       
       
-        <link rel="next" href="../kimi/">
+        <link rel="next" href="../adv_learning/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
-        <title>L1 - MySite</title>
+        <title>Alignment - MySite</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
       
 
@@ -43,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#instruction-based-length-control-l1" class="md-skip">
+        <a href="#1-alignment" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="MySite" class="md-header__button md-logo" aria-label="MySite" data-md-component="logo">
+    <a href=".." title="MySite" class="md-header__button md-logo" aria-label="MySite" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              L1
+              Alignment
             
           </span>
         </div>
@@ -176,7 +176,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="MySite" class="md-nav__button md-logo" aria-label="MySite" data-md-component="logo">
+    <a href=".." title="MySite" class="md-nav__button md-logo" aria-label="MySite" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -194,7 +194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -216,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../llm_review/" class="md-nav__link">
+      <a href="../llm_review/" class="md-nav__link">
         
   
   
@@ -235,10 +235,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../alignment/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Alignment
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -249,6 +269,231 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 对齐 (Alignment) 的目标
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rlhf-reinforcement-learning-with-human-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. RLHF (Reinforcement Learning with Human Feedback)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、三步管线
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、三步管线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) SFT（监督微调，起点策略）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-rm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) 奖励模型 RM（把偏好变成分数）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ppo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3) 强化学习（PPO 最常见）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、直观机制
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、最小实现流程（伪代码）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、关键超参与监控
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、常见陷阱
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、与 DPO 的对照
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、极简“看懂一眼”的数学骨架
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ppo" class="md-nav__link">
+    <span class="md-ellipsis">
+      PPO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PPO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ppo-actorcritic" class="md-nav__link">
+    <span class="md-ellipsis">
+      PPO 更新流程（基于 Actor–Critic）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PPO 更新流程（基于 Actor–Critic）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      输入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1. 采样
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-critic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2. Critic 更新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3. 优势函数估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-actor-ppo-pg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4. Actor 更新（PPO 替换原始 PG）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5. 重复
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结版
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -260,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../adv_learning/" class="md-nav__link">
+      <a href="../adv_learning/" class="md-nav__link">
         
   
   
@@ -279,20 +524,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -308,7 +551,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Overthinking
@@ -322,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../comparasion/" class="md-nav__link">
+      <a href="../Overthinking/comparasion/" class="md-nav__link">
         
   
   
@@ -342,20 +585,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -371,7 +612,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             Survey
@@ -385,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../roadmap/" class="md-nav__link">
+      <a href="../Overthinking/survey/roadmap/" class="md-nav__link">
         
   
   
@@ -405,20 +646,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
         
           
           <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
@@ -434,7 +673,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_2">
             <span class="md-nav__icon md-icon"></span>
             1.1 Model-based: RL Optimization via Length Reward
@@ -448,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/intro/" class="md-nav__link">
         
   
   
@@ -471,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../o1/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/o1/" class="md-nav__link">
         
   
   
@@ -491,32 +730,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    L1
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_1/L1/" class="md-nav__link">
         
   
   
@@ -527,104 +744,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 背景问题
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 方法核心
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 方法核心">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      (1) 数据构造
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      (2) 奖励函数
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      (3) 优化方式
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 实际效果
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-o1-pruner" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 和 O1-Pruner 的区别
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 总结一句
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -637,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kimi/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/kimi/" class="md-nav__link">
         
   
   
@@ -660,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dast/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/dast/" class="md-nav__link">
         
   
   
@@ -683,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../training/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/training/" class="md-nav__link">
         
   
   
@@ -752,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_2/intro/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/intro/" class="md-nav__link">
         
   
   
@@ -775,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_2/distill/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/distill/" class="md-nav__link">
         
   
   
@@ -798,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_2/c3ot/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/c3ot/" class="md-nav__link">
         
   
   
@@ -821,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_2/tokenskip/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/tokenskip/" class="md-nav__link">
         
   
   
@@ -844,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_2/learntoskip/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/learntoskip/" class="md-nav__link">
         
   
   
@@ -867,7 +986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_2/selftraining/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/selftraining/" class="md-nav__link">
         
   
   
@@ -890,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_2/tokenbudget/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/tokenbudget/" class="md-nav__link">
         
   
   
@@ -913,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_2/cotvalve/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/cotvalve/" class="md-nav__link">
         
   
   
@@ -982,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/intro/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/intro/" class="md-nav__link">
         
   
   
@@ -1005,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/coconut/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/coconut/" class="md-nav__link">
         
   
   
@@ -1028,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/codi/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/codi/" class="md-nav__link">
         
   
   
@@ -1051,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/ccot/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/ccot/" class="md-nav__link">
         
   
   
@@ -1074,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/softcot/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/softcot/" class="md-nav__link">
         
   
   
@@ -1143,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/intro/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/intro/" class="md-nav__link">
         
   
   
@@ -1166,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/speculative/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/speculative/" class="md-nav__link">
         
   
   
@@ -1189,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/rsd/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/rsd/" class="md-nav__link">
         
   
   
@@ -1212,7 +1331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/dpts/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/dpts/" class="md-nav__link">
         
   
   
@@ -1235,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/certaindex/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/certaindex/" class="md-nav__link">
         
   
   
@@ -1258,7 +1377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/fastmcts/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/fastmcts/" class="md-nav__link">
         
   
   
@@ -1281,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/lengthfiltered/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/lengthfiltered/" class="md-nav__link">
         
   
   
@@ -1304,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/stbon/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/stbon/" class="md-nav__link">
         
   
   
@@ -1327,7 +1446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/lightthinker/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/lightthinker/" class="md-nav__link">
         
   
   
@@ -1350,7 +1469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/inftythinker/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/inftythinker/" class="md-nav__link">
         
   
   
@@ -1373,7 +1492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/samplingefficient.md" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/samplingefficient.md" class="md-nav__link">
         
   
   
@@ -1442,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/intro/" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/intro/" class="md-nav__link">
         
   
   
@@ -1465,7 +1584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/tokenbudget/" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/tokenbudget/" class="md-nav__link">
         
   
   
@@ -1488,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/chainofdraft/" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/chainofdraft/" class="md-nav__link">
         
   
   
@@ -1511,7 +1630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/taleep/" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/taleep/" class="md-nav__link">
         
   
   
@@ -1580,7 +1699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/claude.md" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/claude.md" class="md-nav__link">
         
   
   
@@ -1603,7 +1722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/sot.md" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/sot.md" class="md-nav__link">
         
   
   
@@ -1659,8 +1778,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1669,46 +1786,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-alignment" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 背景问题
+      1. 对齐 (Alignment) 的目标
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2-rlhf-reinforcement-learning-with-human-feedback" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 方法核心
+      2. RLHF (Reinforcement Learning with Human Feedback)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. 方法核心">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、三步管线
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、三步管线">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
+  <a href="#1-sft" class="md-nav__link">
     <span class="md-ellipsis">
-      (1) 数据构造
+      1) SFT（监督微调，起点策略）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
+  <a href="#2-rm" class="md-nav__link">
     <span class="md-ellipsis">
-      (2) 奖励函数
+      2) 奖励模型 RM（把偏好变成分数）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-ppo" class="md-nav__link">
     <span class="md-ellipsis">
-      (3) 优化方式
+      3) 强化学习（PPO 最常见）
     </span>
   </a>
   
@@ -1720,29 +1846,149 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      3. 实际效果
+      二、直观机制
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-o1-pruner" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      4. 和 O1-Pruner 的区别
+      三、最小实现流程（伪代码）
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      5. 总结一句
+      四、关键超参与监控
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、常见陷阱
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、与 DPO 的对照
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、极简“看懂一眼”的数学骨架
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ppo" class="md-nav__link">
+    <span class="md-ellipsis">
+      PPO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PPO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ppo-actorcritic" class="md-nav__link">
+    <span class="md-ellipsis">
+      PPO 更新流程（基于 Actor–Critic）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PPO 更新流程（基于 Actor–Critic）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      输入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1. 采样
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-critic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2. Critic 更新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3. 优势函数估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-actor-ppo-pg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4. Actor 更新（PPO 替换原始 PG）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5. 重复
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结版
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1762,75 +2008,181 @@
 
 
 
-<h1 id="instruction-based-length-control-l1">指令约束法 (Instruction-based Length Control): L1<a class="headerlink" href="#instruction-based-length-control-l1" title="Permanent link">&para;</a></h1>
-<h2 id="1">1. 背景问题<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>在 RL 微调推理模型时，通常直接靠奖励函数（正确性 + 长度惩罚）去“暗示”模型输出更短的 CoT。</li>
-<li>
-<p>但这样有两个难点：</p>
-</li>
-<li>
-<p><strong>奖励噪声大</strong>：光靠奖励信号，模型可能不知道到底要缩到多少才合理。</p>
-</li>
-<li><strong>题目异质性</strong>：不同题目需要的推理长度不同，用统一的惩罚容易“过短”或“过长”。</li>
-</ul>
-<p>所以 L1 提出：干脆在 <strong>输入 prompt</strong> 里直接告诉模型「想 N 步」，再把这个约束写进奖励。</p>
+<p>好，我们展开 <strong>(c) 对齐 (Alignment)</strong>，重点放在 <strong>RLHF、DPO、GRPO</strong>。</p>
 <hr />
-<h2 id="2">2. 方法核心<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>L1 的关键就是 <strong>“显式指令 + 长度差惩罚”</strong>：</p>
-<h3 id="1_1">(1) 数据构造<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
-<p>在原始问题 <span class="arithmatex">\(x\)</span> 后面拼接一条约束：</p>
-<div class="codehilite"><pre><span></span><code><span class="nv">Q</span>:<span class="w"> </span><span class="ss">(</span>题目文本<span class="ss">)</span>
-<span class="nv">Instruction</span>:<span class="w"> </span><span class="nv">Think</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">N</span><span class="w"> </span><span class="nv">tokens</span>.
-</code></pre></div>
-
-<p>其中 <span class="arithmatex">\(N\)</span> 可以根据任务设定或随机采样。</p>
-<h3 id="2_1">(2) 奖励函数<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
-<p>输出长度 <span class="arithmatex">\(L(y)\)</span>，目标长度 <span class="arithmatex">\(L(y_{GT})\)</span>。
-奖励定义为：</p>
+<h2 id="1-alignment">1. 对齐 (Alignment) 的目标<a class="headerlink" href="#1-alignment" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>预训练 / 微调后的 LLM 虽然会生成语言，但可能：</p>
+</li>
+<li>
+<p>不符合人类偏好（答非所问、不安全）。</p>
+</li>
+<li>输出啰嗦、不简洁。</li>
+<li>在模糊问题上没法给合理答案。</li>
+<li><strong>对齐 (alignment)</strong> 的任务 = 让模型更符合人类期望。</li>
+<li>常见做法：用 <strong>人类反馈</strong> 或 <strong>人工标注的偏好数据</strong> 来调整模型。</li>
+</ul>
+<hr />
+<h2 id="2-rlhf-reinforcement-learning-with-human-feedback">2. RLHF (Reinforcement Learning with Human Feedback)<a class="headerlink" href="#2-rlhf-reinforcement-learning-with-human-feedback" title="Permanent link">&para;</a></h2>
+<p>结论：<strong>RLHF = SFT → 奖励模型(RM) → RL(通常PPO) + KL 约束</strong>。用人类偏好把策略往“更合人意”的区域推，同时用 KL 把策略钉在参考策略附近，防崩。</p>
+<hr />
+<h1 id="_1">一、三步管线<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1-sft">1) SFT（监督微调，起点策略）<a class="headerlink" href="#1-sft" title="Permanent link">&para;</a></h2>
+<p>在指令数据上做交叉熵，得参考策略 <span class="arithmatex">\(\pi_{\text{ref}}=\pi_{\text{SFT}}\)</span>。</p>
 <div class="arithmatex">\[
-r(y, y_{GT}, L(y_{GT})) = \mathbf{1}\{y = y_{GT}\} \;-\; \alpha \cdot |L(y_{GT}) - L(y)|
+\min_\theta \;-\!\sum_t \log \pi_\theta(y_t|x, y_{&lt;t})
+\]</div>
+<h2 id="2-rm">2) 奖励模型 RM（把偏好变成分数）<a class="headerlink" href="#2-rm" title="Permanent link">&para;</a></h2>
+<p>数据是偏好对 <span class="arithmatex">\((x,y^+,y^-)\)</span>。训练标量打分 <span class="arithmatex">\(r_\phi(x,y)\)</span>，用 Bradley–Terry/对比损失：</p>
+<div class="arithmatex">\[
+\min_\phi \;-\log \sigma\!\big(r_\phi(x,y^+)-r_\phi(x,y^-)\big)
+\]</div>
+<h2 id="3-ppo">3) 强化学习（PPO 最常见）<a class="headerlink" href="#3-ppo" title="Permanent link">&para;</a></h2>
+<p>把“写一段回复”当一回合：状态=已生成前缀，动作=下一个 token，episode 回报在<strong>末尾</strong>给出：</p>
+<div class="arithmatex">\[
+R(x,y)=r_\phi(x,y) \;-\; \beta\,\mathrm{KL}\!\big(\pi_\theta(\cdot|x)\,\|\,\pi_{\text{ref}}(\cdot|x)\big)\;-\;\lambda_{\text{len}}\cdot \text{len}(y)
 \]</div>
 <ul>
-<li>如果答案对 → 给 1 分；</li>
-<li>但离目标长度差多少，就扣多少（乘权重 α）；</li>
-<li>答错了 → 减去长度差，不会因为“短”就被错奖。</li>
+<li>第一项：人类偏好方向</li>
+<li>第二项：<strong>KL 正则</strong>，防偏离 SFT</li>
+<li>第三项：长度罚，防话痨</li>
 </ul>
-<h3 id="3">(3) 优化方式<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>PPO 更新（分词级优势 <span class="arithmatex">\(A_t\)</span> 用 GAE 估计）：</p>
+<div class="arithmatex">\[
+\max_\theta \;\mathbb{E}\!\left[\min\!\big(\rho_t A_t,\;\mathrm{clip}(\rho_t,1\!\pm\!\epsilon)A_t\big)\right]
+\;-\;\lambda_{KL}\,\mathrm{KL}_t
+\]</div>
+<div class="arithmatex">\[
+\rho_t=\exp\big(\log\pi_\theta(a_t|s_t)-\log\pi_{\theta_{old}}(a_t|s_t)\big)
+\]</div>
+<blockquote>
+<p>备注：KL 可“显式项”加在目标里，或“内嵌”到回报里（二选一，工程上常用<strong>目标 KL</strong>跟踪并自适应调 <span class="arithmatex">\(\beta\)</span>)。</p>
+</blockquote>
+<hr />
+<h1 id="_2">二、直观机制<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <ul>
-<li>用 <strong>GRPO (Group Relative Policy Optimization)</strong> 做 RL 更新（跟 DeepSeek-R1 用的同一类方法）。</li>
-<li>在优势函数里就会体现“短且对 → 高优势；长且对 → 优势变小”。</li>
+<li><strong>RM</strong>学“人更喜欢哪种回答”。</li>
+<li><strong>PPO</strong>把概率质量从差回答移到好回答上。</li>
+<li><strong>KL</strong>像“松紧带”，限制每步更新幅度，稳定训练。</li>
 </ul>
 <hr />
-<h2 id="3_1">3. 实际效果<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
+<h1 id="_3">三、最小实现流程（伪代码）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code># 预备：已有 pi_ref (SFT)、RM
+repeat:
+  batch X ~ prompts
+  # 采样策略：从当前 pi_theta 生成 K 个候选
+  Y = sample(pi_theta, X, num_samples=K, temperature=0.7)
+  # 评分：端到端奖励
+  R = RM.score(X, Y) - beta*KL(pi_theta||pi_ref) - lambda_len*len(Y)
+  # 展开成逐token轨迹，估计 advantage (GAE)
+  A_t, V_t = estimate_advantage(R, trajectories)
+  # PPO 更新
+  theta &lt;- argmax L_clip(theta; A_t, rho_t) - lambda_KL*KL_t + entropy_bonus
+until dev_metrics converge
+</code></pre></div>
+
+<hr />
+<h1 id="_4">四、关键超参与监控<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <ul>
-<li><strong>更可控</strong>：因为 prompt 已经明确告诉模型“写 N 个 token”，所以模型更容易学会把推理控制在一个合理区间。</li>
-<li><strong>比单纯长度惩罚更稳定</strong>：指令就像一个“软约束”，奖励函数再精调，这样 RL 不会乱跑。</li>
-<li><strong>适应不同题目</strong>：可以给不同题目不同的 N（比如简单题设 N=20，难题设 N=200），模型逐渐学会“按题目调节推理长度”。</li>
+<li><strong>目标 KL（nats/token）</strong>：常设目标值并自调 <span class="arithmatex">\(\beta\)</span>。目标太小→学不到偏好；太大→漂离 SFT。</li>
+<li><strong>采样 K</strong>：每条 prompt 采样 1–4 条，提高探索但控制算力。</li>
+<li><strong>长度/重复惩罚</strong>：必要，防“冗长”“复读”。</li>
+<li><strong>监控</strong>：偏好命中率↑、离线 RM 分数↑、目标 KL 贴合、人工验收集稳定。</li>
 </ul>
 <hr />
-<h2 id="4-o1-pruner">4. 和 O1-Pruner 的区别<a class="headerlink" href="#4-o1-pruner" title="Permanent link">&para;</a></h2>
+<h1 id="_5">五、常见陷阱<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
 <ul>
-<li><strong>O1-Pruner</strong>：用参考模型当“标尺”，比参考更短更好。</li>
-<li><strong>L1</strong>：直接用 prompt 明确告诉模型目标长度，并用差距来罚。</li>
-<li>
-<p>换句话说：</p>
-</li>
-<li>
-<p>O1-Pruner = “跟别人比”</p>
-</li>
-<li>L1 = “听指令做”</li>
+<li><strong>奖励黑客</strong>：模型学会讨好 RM 的“捷径”。解法：多源偏好、对抗负样本、校准 RM、增加格式/事实校验。</li>
+<li><strong>话痨</strong>：没有长度/重复罚则，RM 往往偏长。</li>
+<li><strong>模式坍塌</strong>：KL 太弱或更新太猛。降学习率，升 <span class="arithmatex">\(\beta\)</span>/目标 KL。</li>
+<li><strong>RM 偏置</strong>：单一域训练导致泛化差。混合域+人工抽检。</li>
+<li><strong>稀疏回报</strong>：只在句尾给分不稳定。可加<strong>中间过程分</strong>（PRM）或 step 级 shaping。</li>
 </ul>
 <hr />
-<h2 id="5">5. 总结一句<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<p><strong>L1 方法的本质</strong>就是：</p>
+<h1 id="dpo">六、与 DPO 的对照<a class="headerlink" href="#dpo" title="Permanent link">&para;</a></h1>
 <ul>
-<li><strong>在输入端用指令约束目标长度</strong>，</li>
-<li><strong>在奖励端用“答案正确 + 长度差惩罚”</strong>，</li>
-<li>再用 RL (GRPO) 让模型学会在“对”的前提下尽量遵守长度指令。</li>
+<li><strong>RLHF</strong>：显式 RM + RL（PPO），可接第三方工具回报，灵活但工程复杂。</li>
+<li><strong>DPO</strong>：直接在偏好对上做对比优化，无 RM、无 RL，稳定简单。</li>
+<li><strong>取舍</strong>：需要在线探索/工具复合回报 → RLHF；纯偏好拟合/工程简洁 → DPO。</li>
 </ul>
 <hr />
-<p>要不要我给你画一个 <strong>L1 的训练流程图</strong>（题目+指令 → 模型输出 → 奖励计算 → PPO/GRPO 更新）？</p>
+<h1 id="_6">七、极简“看懂一眼”的数学骨架<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<ul>
+<li>偏好到分数：<span class="arithmatex">\(\;y^+&gt;y^- \Rightarrow r_\phi(x,y^+)&gt;r_\phi(x,y^-)\)</span></li>
+<li>回报成形：<span class="arithmatex">\(\;R = r_\phi - \beta\,\mathrm{KL} - \lambda_{\text{len}}\text{len}\)</span></li>
+<li>策略更新：<span class="arithmatex">\(\;\theta \leftarrow \theta + \eta \,\nabla_\theta \mathbb{E}\big[\sum_t \log\pi_\theta(a_t|s_t) A_t\big]\)</span>（PPO 用裁剪与 KL 稳定化）</li>
+</ul>
+<hr />
+<p>需要我把“<strong>如何设目标 KL 与自适应 <span class="arithmatex">\(\beta\)</span></strong>”“<strong>用 PRM 做过程回报</strong>”这两点再展开成可直接落地的配置与公式吗？</p>
+<h1 id="ppo">PPO<a class="headerlink" href="#ppo" title="Permanent link">&para;</a></h1>
+<p>好的，我直接给你写一遍 <strong>PPO 的 Actor–Critic 更新流程</strong>，在原始 Actor–Critic 的框架里插入 PPO 的修改。</p>
+<hr />
+<h2 id="ppo-actorcritic">PPO 更新流程（基于 Actor–Critic）<a class="headerlink" href="#ppo-actorcritic" title="Permanent link">&para;</a></h2>
+<h3 id="_7">输入<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Actor（策略网络）参数 <span class="arithmatex">\(\theta\)</span>，输出 <span class="arithmatex">\(\pi_\theta(a|s)\)</span></li>
+<li>Critic（价值网络）参数 <span class="arithmatex">\(\phi\)</span>，输出 <span class="arithmatex">\(V_\phi(s)\)</span></li>
+<li>环境交互数据 <span class="arithmatex">\((s_t,a_t,r_t,s_{t+1})\)</span></li>
+</ul>
+<hr />
+<h3 id="step-1">Step 1. 采样<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h3>
+<p>用当前策略 <span class="arithmatex">\(\pi_{\theta_{\text{old}}}\)</span> 跑一批 trajectory，得到经验 <span class="arithmatex">\(\{s_t,a_t,r_t\}\)</span>。</p>
+<hr />
+<h3 id="step-2-critic">Step 2. Critic 更新<a class="headerlink" href="#step-2-critic" title="Permanent link">&para;</a></h3>
+<ul>
+<li>TD 目标：</li>
+</ul>
+<p>$$
+  \hat{G}<em>t = r_t + \gamma V</em>\phi(s_{t+1})
+  $$
+* Critic 损失：</p>
+<p>$$
+  L^{\text{VF}}(\phi) = (V_\phi(s_t) - \hat{G}_t)^2
+  $$
+* 更新 Critic 参数 <span class="arithmatex">\(\phi \leftarrow \phi - \beta \nabla_\phi L^{\text{VF}}(\phi)\)</span>。</p>
+<hr />
+<h3 id="step-3">Step 3. 优势函数估计<a class="headerlink" href="#step-3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>TD 误差：</li>
+</ul>
+<p>$$
+  \delta_t = r_t + \gamma V_\phi(s_{t+1}) - V_\phi(s_t)
+  $$
+* 用 GAE 累积：</p>
+<p>$$
+  A_t = \sum_{l=0}^\infty (\gamma \lambda)^l \delta_{t+l}
+  $$</p>
+<hr />
+<h3 id="step-4-actor-ppo-pg">Step 4. Actor 更新（PPO 替换原始 PG）<a class="headerlink" href="#step-4-actor-ppo-pg" title="Permanent link">&para;</a></h3>
+<ul>
+<li>概率比率：</li>
+</ul>
+<p>$$
+  r_t(\theta) = \frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{\text{old}}}(a_t|s_t)}
+  $$
+* PPO Actor 损失：</p>
+<p>$$
+  L^{\text{CLIP}}(\theta) = \mathbb{E}_t\Big[\min(r_t(\theta)A_t,\;\text{clip}(r_t(\theta),1-\epsilon,1+\epsilon)A_t)\Big]
+  $$
+* 更新 Actor 参数：</p>
+<p>$$
+  \theta \leftarrow \theta + \alpha \nabla_\theta L^{\text{CLIP}}(\theta)
+  $$</p>
+<hr />
+<h3 id="step-5">Step 5. 重复<a class="headerlink" href="#step-5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>多个 mini-batch，迭代 <span class="arithmatex">\(K\)</span> 次更新 Actor 和 Critic。</li>
+<li>更新完成后，把 <span class="arithmatex">\(\theta\)</span> 存为新的 <span class="arithmatex">\(\theta_{\text{old}}\)</span>，进入下一轮采样。</li>
+</ul>
+<hr />
+<h2 id="_8">总结版<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p><strong>Actor–Critic 原流程：</strong>
+采样 → 更新 Critic（MSE） → 计算优势 → 更新 Actor（policy gradient）</p>
+<p><strong>PPO 替换版：</strong>
+采样 → 更新 Critic（MSE） → 计算优势 → 更新 Actor（用 <span class="arithmatex">\(L^{\text{CLIP}}\)</span> 而不是简单的 <span class="arithmatex">\(\log\pi \cdot A\)</span>）</p>
+<hr />
+<p>要不要我把这套流程翻译成 <strong>Python 伪代码</strong>，像一段最小可运行的训练循环？</p>
 
 
 
@@ -1879,10 +2231,10 @@ r(y, y_{GT}, L(y_{GT})) = \mathbf{1}\{y = y_{GT}\} \;-\; \alpha \cdot |L(y_{GT})
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
       
