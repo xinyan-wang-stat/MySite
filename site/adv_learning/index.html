@@ -1,0 +1,2860 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../alignment/">
+      
+      
+        <link rel="next" href="../Overthinking/comparasion/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Adversarial learning - MySite</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="MySite" class="md-header__button md-logo" aria-label="MySite" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MySite
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adversarial learning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MySite" class="md-nav__button md-logo" aria-label="MySite" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MySite
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llm_review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLMs review
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alignment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Adversarial learning
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adversarial learning
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      教程大纲
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="教程大纲">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶段 1：基础准备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶段 2：核心方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶段 3：扩展与研究
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶段 4：实战项目
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      今天的学习计划
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 对抗训练 Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 对抗训练 Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 普通训练回顾
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 对抗训练的额外步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 直观比喻
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 常见实现方式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 1. 图像生成
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎨 1. 图像生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-stylegan" class="md-nav__link">
+    <span class="md-ellipsis">
+      (a) StyleGAN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-diffusion-models-vs-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      (b) Diffusion Models (扩散模型) vs GAN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-nlp-adversarial-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 2. NLP 中的 Adversarial Attack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-model-stealing-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 3. 安全与隐私：防御模型窃取 (Model Stealing Defense)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 总体框架
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adversarial-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧨 一、对抗攻击 (Adversarial Attack)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧨 一、对抗攻击 (Adversarial Attack)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-white-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 白盒攻击 (White-box)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-black-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 黑盒攻击 (Black-box)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adversarial-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ 二、对抗训练 (Adversarial Training)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ 二、对抗训练 (Adversarial Training)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓解 Trade-off 的方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎲 三、生成对抗网络 (GAN)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 四、相关方法扩展
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 四、相关方法扩展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-knowledge-distillation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 知识蒸馏 (Knowledge Distillation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-self-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 自监督学习 (Self-Supervised Learning)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-semi-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 半监督学习 (Semi-Supervised Learning)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 总结记忆框架
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 总结记忆框架">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 直观例子
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 直观例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discriminative" class="md-nav__link">
+    <span class="md-ellipsis">
+      判别模型 (Discriminative)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generative" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成模型 (Generative)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 常见生成模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 常见生成模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      (a) 显式建模分布
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      (b) 隐式建模分布
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 总结对比
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Overthinking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Overthinking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/comparasion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comparasion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Survey
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Survey
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roadmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1.1 Model-based: RL Optimization via Length Reward
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            1.1 Model-based: RL Optimization via Length Reward
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_1/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_1/o1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    O1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_1/L1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    L1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_1/kimi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kimi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_1/dast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DAST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_1/training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Training
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_3" id="__nav_5_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1.2 Model-based: SFT with Variable-Length CoT
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            1.2 Model-based: SFT with Variable-Length CoT
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_2/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_2/distill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Distilling2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_2/c3ot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C3oT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_2/tokenskip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TokenSkip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_2/learntoskip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Learn to Skip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_2/selftraining/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Self-Training
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_2/tokenbudget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Token-Budget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_2/cotvalve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CoT-Valve
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4" id="__nav_5_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    2.1 Ouput-based: Latent Representation Compression
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            2.1 Ouput-based: Latent Representation Compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_1/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_1/coconut/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Coconut
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_1/codi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CODI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_1/ccot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CCoT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_1/softcot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SoftCoT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_5" id="__nav_5_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    2.2 Output-based: Dynamic Reasoning Paradigm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            2.2 Output-based: Dynamic Reasoning Paradigm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/speculative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Speculative Rejection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/rsd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reward-Guided Speculative Decoding (RSD)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/dpts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dynamic Parallel Tree Search (DPTS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/certaindex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dynasor/Certaindex (Certaindex-based Scheduling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/fastmcts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FastMCTS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/lengthfiltered/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Length-filtered Vote
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/stbon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Self-Truncation Best-of-N (ST-BoN)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/lightthinker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LightThinker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/inftythinker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InftyThink
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/2_2/samplingefficient.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sampling-Efficient TTS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_6" id="__nav_5_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    3.1 Input Prompts-based: Prompt-Guided Efficient Reasoning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            3.1 Input Prompts-based: Prompt-Guided Efficient Reasoning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/3_1/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/3_1/tokenbudget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Token-Budget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/3_1/chainofdraft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chain of Draft
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/3_1/taleep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TALE-EP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_7" id="__nav_5_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    3.2 Input Prompts-based: Routing by Question Attributes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            3.2 Input Prompts-based: Routing by Question Attributes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/3_1/claude.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Claude 3.7 Sonnet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/3_1/sot.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SoT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      教程大纲
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="教程大纲">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶段 1：基础准备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶段 2：核心方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶段 3：扩展与研究
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶段 4：实战项目
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      今天的学习计划
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 对抗训练 Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 对抗训练 Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 普通训练回顾
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 对抗训练的额外步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 直观比喻
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 常见实现方式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 1. 图像生成
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎨 1. 图像生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-stylegan" class="md-nav__link">
+    <span class="md-ellipsis">
+      (a) StyleGAN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-diffusion-models-vs-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      (b) Diffusion Models (扩散模型) vs GAN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-nlp-adversarial-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 2. NLP 中的 Adversarial Attack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-model-stealing-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 3. 安全与隐私：防御模型窃取 (Model Stealing Defense)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 总体框架
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adversarial-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧨 一、对抗攻击 (Adversarial Attack)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧨 一、对抗攻击 (Adversarial Attack)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-white-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 白盒攻击 (White-box)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-black-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 黑盒攻击 (Black-box)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adversarial-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ 二、对抗训练 (Adversarial Training)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ 二、对抗训练 (Adversarial Training)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓解 Trade-off 的方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎲 三、生成对抗网络 (GAN)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 四、相关方法扩展
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 四、相关方法扩展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-knowledge-distillation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 知识蒸馏 (Knowledge Distillation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-self-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 自监督学习 (Self-Supervised Learning)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-semi-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 半监督学习 (Semi-Supervised Learning)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 总结记忆框架
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 总结记忆框架">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 直观例子
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 直观例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discriminative" class="md-nav__link">
+    <span class="md-ellipsis">
+      判别模型 (Discriminative)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generative" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成模型 (Generative)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 常见生成模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 常见生成模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      (a) 显式建模分布
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      (b) 隐式建模分布
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 总结对比
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>学习 adversarial learning 的路径可以分为四个阶段：基础 → 核心方法 → 扩展方向 → 实战。下面我帮你设计一个教程，然后我们今天可以从第一步开始。</p>
+<hr />
+<h2 id="_1">教程大纲<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="1"><strong>阶段 1：基础准备</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>数学工具</strong></p>
+</li>
+<li>
+<p>优化：凸优化、梯度下降、对偶性</p>
+</li>
+<li>概率论：分布、KL 散度、JS 散度</li>
+<li>
+<p>信息论：互信息、熵</p>
+</li>
+<li>
+<p><strong>机器学习背景</strong></p>
+</li>
+<li>
+<p>监督学习 vs 非监督学习</p>
+</li>
+<li>深度学习框架（PyTorch 或 TensorFlow）</li>
+<li>损失函数与正则化</li>
+</ol>
+<hr />
+<h3 id="2"><strong>阶段 2：核心方法</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>对抗样本 (Adversarial Examples)</strong></p>
+</li>
+<li>
+<p>FGSM (Fast Gradient Sign Method)</p>
+</li>
+<li>PGD (Projected Gradient Descent)</li>
+<li>
+<p>Carlini-Wagner 攻击</p>
+</li>
+<li>
+<p><strong>对抗训练 (Adversarial Training)</strong></p>
+</li>
+<li>
+<p>Min-max 优化公式</p>
+</li>
+<li>Robust optimization</li>
+<li>
+<p>TRADES 方法</p>
+</li>
+<li>
+<p><strong>生成对抗网络 (GANs)</strong></p>
+</li>
+<li>
+<p>原始 GAN：minmax 游戏，判别器与生成器</p>
+</li>
+<li>改进：DCGAN, WGAN, WGAN-GP</li>
+</ol>
+<hr />
+<h3 id="3"><strong>阶段 3：扩展与研究</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>鲁棒性与防御方法</strong></p>
+</li>
+<li>
+<p>对抗训练 vs 随机平滑</p>
+</li>
+<li>
+<p>Verification / Certification</p>
+</li>
+<li>
+<p><strong>应用方向</strong></p>
+</li>
+<li>
+<p>图像生成 (StyleGAN, diffusion vs GAN)</p>
+</li>
+<li>NLP 中的 adversarial attack</li>
+<li>安全和隐私：防御模型窃取</li>
+</ol>
+<hr />
+<h3 id="4"><strong>阶段 4：实战项目</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>PyTorch 实现 FGSM 与 PGD 攻击</strong></li>
+<li><strong>训练一个对抗鲁棒的 CNN（MNIST / CIFAR-10）</strong></li>
+<li><strong>实现并改进一个 GAN（DCGAN 生成手写数字）</strong></li>
+<li><strong>复现一篇 adversarial learning 的论文</strong></li>
+</ol>
+<hr />
+<h2 id="_2">今天的学习计划<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>第一天建议从 <strong>基础 + FGSM 对抗攻击</strong> 入手：</p>
+<ol>
+<li>复习对抗攻击的基本公式：</li>
+</ol>
+<p>$$
+   x' = x + \epsilon \cdot \text{sign}(\nabla_x L(\theta, x, y))
+   $$</p>
+<p>解释：通过在输入方向上加小扰动，使模型预测错误。
+2. 用 PyTorch 在 MNIST 上实现 FGSM 攻击。</p>
+<hr />
+<p>要不要我直接给你写一个 <strong>PyTorch FGSM 攻击的完整代码示例</strong>，你今天就能跑通第一个 adversarial attack？</p>
+<p>好 👍 我们把 <strong>对抗训练 (Adversarial Training)</strong> 的 <strong>训练流水线 (pipeline)</strong> 展开，一步步讲。你可以把它理解成：<strong>普通训练 + 在每个 batch 里先造对抗样本</strong>。</p>
+<hr />
+<h1 id="pipeline">🔄 对抗训练 Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h1>
+<h2 id="1_1">1. 普通训练回顾<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<p>正常训练流程：</p>
+<ol>
+<li>取一个 batch 数据 <span class="arithmatex">\((x,y)\)</span>。</li>
+<li>前向传播，计算 loss：<span class="arithmatex">\(L(f_\theta(x), y)\)</span>。</li>
+<li>反向传播，更新参数 <span class="arithmatex">\(\theta\)</span>。</li>
+</ol>
+<hr />
+<h2 id="2_1">2. 对抗训练的额外步骤<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h2>
+<p>对抗训练在每个 batch 中<strong>多加一步造“陷阱样本”</strong>：</p>
+<ol>
+<li><strong>取 batch 数据</strong>：<span class="arithmatex">\((x,y)\)</span>。</li>
+<li>
+<p><strong>生成对抗样本 <span class="arithmatex">\(x^{adv}\)</span></strong>：</p>
+</li>
+<li>
+<p>用攻击方法 (FGSM / PGD)：</p>
+<p>$$
+ x^{adv} = x + \delta, \quad |\delta|\leq \epsilon
+ $$
+   * <span class="arithmatex">\(\delta\)</span> 是能最大化损失的扰动。
+3. <strong>计算损失 (两部分)</strong>：</p>
+</li>
+<li>
+<p>干净样本：<span class="arithmatex">\(L(f_\theta(x), y)\)</span>。</p>
+</li>
+<li>对抗样本：<span class="arithmatex">\(L(f_\theta(x^{adv}), y)\)</span>。</li>
+<li>最终 loss = 两者加权平均。</li>
+<li><strong>反向传播</strong>：更新参数 <span class="arithmatex">\(\theta\)</span>，让模型既能分类干净样本，也能抵御对抗样本。</li>
+<li><strong>进入下一 batch</strong>，循环直到收敛。</li>
+</ol>
+<hr />
+<h2 id="3_1">3. 直观比喻<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>普通训练：学生做“标准题目”。</li>
+<li>对抗训练：老师先故意把题目改成“陷阱题”，学生学会了如何避免被误导。</li>
+<li>长期下来，学生不仅会做标准题，还能识破陷阱题。</li>
+</ul>
+<hr />
+<h2 id="4_1">4. 常见实现方式<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>FGSM 对抗训练</strong>：</p>
+</li>
+<li>
+<p>一步扰动，快但弱。</p>
+</li>
+<li>
+<p><strong>PGD 对抗训练</strong>：</p>
+</li>
+<li>
+<p>多步迭代，强攻击，被认为是“鲁棒性基线”。</p>
+</li>
+<li>
+<p><strong>Free AT / Fast AT</strong>：</p>
+</li>
+<li>
+<p>用更快的近似方法，减少开销。</p>
+</li>
+</ul>
+<hr />
+<p>📌 总结一句话：
+<strong>对抗训练的 pipeline = 普通训练 + 在每个 batch 前造对抗样本，然后一起训练。</strong></p>
+<hr />
+<p>要不要我帮你画一张 <strong>对抗训练流程图</strong>，把“输入 → 生成对抗样本 → 混合训练 → 参数更新”整个过程直观画出来？</p>
+<p>好 👍 我们进入 <strong>阶段 3：应用方向</strong>，逐一展开。</p>
+<hr />
+<h1 id="1_2">🎨 1. 图像生成<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h1>
+<h2 id="a-stylegan">(a) StyleGAN<a class="headerlink" href="#a-stylegan" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>特点</strong>：NVIDIA 提出的高质量人脸生成模型。</li>
+<li>
+<p><strong>关键创新</strong>：</p>
+</li>
+<li>
+<p><strong>风格控制 (Style Modulation)</strong>：latent vector 经过映射网络，控制不同层级的特征（低层 → 輪廓，高层 → 细节）。</p>
+</li>
+<li><strong>逐层噪声注入</strong>：增强多样性。</li>
+<li><strong>效果</strong>：能生成超逼真的人脸、艺术风格图像。</li>
+</ul>
+<h2 id="b-diffusion-models-vs-gan">(b) Diffusion Models (扩散模型) vs GAN<a class="headerlink" href="#b-diffusion-models-vs-gan" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Diffusion</strong>：</p>
+</li>
+<li>
+<p>训练时：逐步给图像加噪声，直到变成高斯噪声。</p>
+</li>
+<li>生成时：学会“反扩散”，一步步从噪声还原清晰图像。</li>
+<li><strong>优点</strong>：训练稳定，生成质量高，可控性强。</li>
+<li><strong>缺点</strong>：采样慢（要几百步反扩散）。</li>
+<li>
+<p><strong>GAN</strong>：</p>
+</li>
+<li>
+<p>训练时：生成器 vs 判别器博弈。</p>
+</li>
+<li><strong>优点</strong>：采样快（一次前向传播即可生成）。</li>
+<li><strong>缺点</strong>：训练不稳定，可能模式崩溃。</li>
+<li>
+<p><strong>对比总结</strong>：</p>
+</li>
+<li>
+<p>GAN = 快，但不稳定。</p>
+</li>
+<li>Diffusion = 稳，但慢。</li>
+<li>最新方向：Diffusion + GAN，结合两者优点。</li>
+</ul>
+<hr />
+<h1 id="2-nlp-adversarial-attack">📖 2. NLP 中的 Adversarial Attack<a class="headerlink" href="#2-nlp-adversarial-attack" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>目标</strong>：在文本上构造对抗扰动，欺骗 NLP 模型（BERT, GPT）。</li>
+<li><strong>难点</strong>：文字是离散的，不能像图像那样直接加 <span class="arithmatex">\(\delta\)</span>。</li>
+<li>
+<p><strong>方法</strong>：</p>
+</li>
+<li>
+<p><strong>同义词替换</strong>：把“good”替换成“excellent”，保持语义但误导模型。</p>
+</li>
+<li><strong>字符扰动</strong>：加错别字，比如 “terrible” → “terrib1e”。</li>
+<li><strong>句子改写</strong>：用 paraphrase 生成对抗样本。</li>
+<li><strong>应用场景</strong>：情感分析、机器翻译、问答系统、聊天机器人。</li>
+<li><strong>意义</strong>：提高 NLP 模型鲁棒性、防止恶意攻击。</li>
+</ul>
+<hr />
+<h1 id="3-model-stealing-defense">🔐 3. 安全与隐私：防御模型窃取 (Model Stealing Defense)<a class="headerlink" href="#3-model-stealing-defense" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>模型窃取 (Model Stealing)</strong>：攻击者通过反复查询模型 API，训练一个替代模型。</li>
+<li><strong>后果</strong>：知识产权泄露、模型被复制。</li>
+<li>
+<p><strong>攻击方式</strong>：</p>
+</li>
+<li>
+<p>黑盒攻击：给 API 输入，收集输出，用来训练自己的模型。</p>
+</li>
+<li>
+<p><strong>防御方法</strong>：</p>
+</li>
+<li>
+<p><strong>输出限制</strong>：只返回 top-k 类别，而不是完整概率分布。</p>
+</li>
+<li><strong>随机化输出</strong>：在返回结果中加噪声。</li>
+<li><strong>水印 (Watermarking)</strong>：在模型中嵌入可验证的标记。</li>
+<li><strong>检测异常查询</strong>：限制恶意采样行为。</li>
+</ul>
+<hr />
+<p>📌 总结：</p>
+<ul>
+<li><strong>图像生成</strong>：StyleGAN（风格控制）、Diffusion（稳定高质）、GAN（快但不稳）。</li>
+<li><strong>NLP 对抗攻击</strong>：同义词替换、字符扰动、句子改写 → 用来评估和提升 NLP 模型鲁棒性。</li>
+<li><strong>安全与隐私</strong>：模型窃取威胁，需要输出限制、加噪、水印、查询检测等防御。</li>
+</ul>
+<hr />
+<p>要不要我接下来帮你画一张 <strong>应用方向对比图</strong>（图像生成 vs NLP 攻击 vs 安全防御），把它们放在一个框架下？</p>
+<p>到现在为止，你已经系统学习了 <strong>对抗学习 (Adversarial Learning)</strong> 的核心框架、攻击/防御方法、以及相关扩展（GAN、蒸馏、自监督、半监督等）。我给你整理成知识地图：</p>
+<hr />
+<h1 id="_3">🔑 总体框架<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p><strong>对抗学习 (Adversarial Learning)</strong> 涉及三大核心：</p>
+<ol>
+<li><strong>对抗攻击 (Adversarial Attack)</strong>：生成对抗样本，欺骗模型。</li>
+<li><strong>对抗训练 (Adversarial Training)</strong>：利用对抗样本训练，提升鲁棒性。</li>
+<li><strong>生成对抗网络 (GAN)</strong>：生成器 vs 判别器的对抗博弈，和对抗思想相关。</li>
+</ol>
+<hr />
+<h1 id="adversarial-attack">🧨 一、对抗攻击 (Adversarial Attack)<a class="headerlink" href="#adversarial-attack" title="Permanent link">&para;</a></h1>
+<p><strong>目标</strong>：给输入 <span class="arithmatex">\(x\)</span> 加扰动 <span class="arithmatex">\(\delta\)</span>，得到 <span class="arithmatex">\(x^{adv}=x+\delta\)</span>，让模型出错。</p>
+<h3 id="1-white-box">1. 白盒攻击 (White-box)<a class="headerlink" href="#1-white-box" title="Permanent link">&para;</a></h3>
+<p>攻击者知道模型参数和梯度：</p>
+<ul>
+<li><strong>FGSM</strong>（一步梯度符号）</li>
+<li><strong>PGD</strong>（多步迭代）</li>
+<li><strong>CW 攻击</strong>（优化视角）</li>
+<li><strong>DeepFool</strong>（最小扰动）</li>
+</ul>
+<h3 id="2-black-box">2. 黑盒攻击 (Black-box)<a class="headerlink" href="#2-black-box" title="Permanent link">&para;</a></h3>
+<p>攻击者只看输入输出：</p>
+<ul>
+<li><strong>迁移攻击</strong>：在替代模型上生成攻击，迁移到目标模型。</li>
+<li>
+<p><strong>查询攻击</strong>：多次调用 API，逐步逼近决策边界。</p>
+</li>
+<li>
+<p>Score-based（用概率输出近似梯度，ZOO, NES）</p>
+</li>
+<li>Decision-based（只用类别，Boundary Attack）</li>
+<li>
+<p><strong>进化 / 强化学习攻击</strong>：黑箱优化，代表方法：</p>
+</li>
+<li>
+<p>NES（随机采样估梯度）</p>
+</li>
+<li>遗传算法 (GA/HGA)</li>
+<li>强化学习 (RL-based attacks)</li>
+</ul>
+<hr />
+<h1 id="adversarial-training">🛡️ 二、对抗训练 (Adversarial Training)<a class="headerlink" href="#adversarial-training" title="Permanent link">&para;</a></h1>
+<p><strong>思想</strong>：在训练中加入对抗样本，提高模型鲁棒性。</p>
+<ul>
+<li>标准形式：</li>
+</ul>
+<p>$$
+  \min_\theta \mathbb{E}<em>{(x,y)} \big[\max</em>{|\delta|\leq \epsilon} L(f_\theta(x+\delta), y)\big]
+  $$
+* <strong>不是只用对抗样本训练</strong>，而是干净样本 + 对抗样本混合，避免自然准确率下降过多。
+* <strong>Trade-off</strong>：提高鲁棒性 → 自然准确率往往下降。</p>
+<h3 id="trade-off">缓解 Trade-off 的方法<a class="headerlink" href="#trade-off" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>TRADES</strong>：在 loss 中显式平衡准确率与鲁棒性 (CE + KL)。</li>
+<li><strong>Feature Denoising</strong>：在特征层加去噪模块，缓解扰动放大。</li>
+<li><strong>自监督预训练</strong>：更稳健的特征表示。</li>
+<li><strong>半监督/数据增强</strong>：利用无标签数据生成更多对抗样本。</li>
+<li><strong>对抗蒸馏</strong>：学生模仿鲁棒教师的输出，继承鲁棒性。</li>
+</ul>
+<hr />
+<h1 id="gan">🎲 三、生成对抗网络 (GAN)<a class="headerlink" href="#gan" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>GAN</strong>：生成器 <span class="arithmatex">\(G\)</span> vs 判别器 <span class="arithmatex">\(D\)</span>，min–max 博弈。</li>
+<li><strong>CGAN</strong>：条件 GAN，输入条件标签生成指定类别样本。</li>
+<li><strong>改进</strong>：WGAN（Wasserstein 距离），WGAN-GP（梯度惩罚）。</li>
+<li><strong>评估指标</strong>：IS (Inception Score)，FID (Fréchet Inception Distance)。</li>
+</ul>
+<hr />
+<h1 id="_4">🧩 四、相关方法扩展<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<h3 id="1-knowledge-distillation">1. 知识蒸馏 (Knowledge Distillation)<a class="headerlink" href="#1-knowledge-distillation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>学生 NN（trainable, unknown）模仿教师 NN（fixed, known）的分布。</li>
+<li>Loss = CE(真实标签) + KL(教师分布 vs 学生分布)。</li>
+<li><strong>对抗蒸馏</strong>：学生还要模仿教师在对抗样本上的分布 → 学到鲁棒性。</li>
+</ul>
+<h3 id="2-self-supervised-learning">2. 自监督学习 (Self-Supervised Learning)<a class="headerlink" href="#2-self-supervised-learning" title="Permanent link">&para;</a></h3>
+<ul>
+<li>无标签数据，自造任务学表示。</li>
+<li>方法：旋转预测、拼图、对比学习 (Contrastive Learning)。</li>
+<li>目标：学到通用鲁棒的 encoder（特征提取器）。</li>
+</ul>
+<h3 id="3-semi-supervised-learning">3. 半监督学习 (Semi-Supervised Learning)<a class="headerlink" href="#3-semi-supervised-learning" title="Permanent link">&para;</a></h3>
+<ul>
+<li>少量有标签 + 大量无标签数据。</li>
+<li>
+<p>方法：</p>
+</li>
+<li>
+<p>伪标签 (Pseudo-labeling)</p>
+</li>
+<li>一致性正则化 (Consistency Regularization)</li>
+<li>生成模型辅助 (VAE/GAN)</li>
+<li>在对抗鲁棒性里：对无标签数据也生成对抗样本，扩展训练分布。</li>
+</ul>
+<hr />
+<h1 id="_5">📌 总结记忆框架<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>对抗攻击</strong>：怎么造陷阱 → 白盒 / 黑盒 / 优化 / RL。</li>
+<li><strong>对抗训练</strong>：怎么解陷阱 → 混合训练 + 改进方法 (TRADES, 蒸馏, 自监督, 半监督)。</li>
+<li><strong>GAN</strong>：另一种对抗博弈，用来生成数据。</li>
+<li><strong>蒸馏 / 自监督 / 半监督</strong>：提升模型效率与鲁棒性的辅助技术。</li>
+</ul>
+<hr />
+<p>要不要我接下来帮你画一张 <strong>总知识结构图 (mindmap)</strong>，把攻击、防御、GAN、蒸馏、自监督、半监督串在一起？</p>
+<p>好的，我们先把 <strong>生成模型 (Generative Model)</strong> 的概念讲清楚。</p>
+<hr />
+<h2 id="1_3">1. 定义<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h2>
+<p>生成模型是一类机器学习模型，它的目标是：
+<strong>学习数据分布 <span class="arithmatex">\(p(x)\)</span> 或 <span class="arithmatex">\(p(x,y)\)</span>，并且能用来生成新的样本。</strong></p>
+<p>换句话说：</p>
+<ul>
+<li>判别模型 (Discriminative Model) → 学“区分”，比如猫 vs 狗。</li>
+<li>生成模型 (Generative Model) → 学“分布”，比如“猫长什么样”、“狗长什么样”，还能生成新猫新狗。</li>
+</ul>
+<hr />
+<h2 id="2_2">2. 直观例子<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h2>
+<h3 id="discriminative">判别模型 (Discriminative)<a class="headerlink" href="#discriminative" title="Permanent link">&para;</a></h3>
+<ul>
+<li>输入一张图 → 输出“猫”或“狗”。</li>
+<li>学到的：<span class="arithmatex">\(p(y|x)\)</span>，即 <strong>给定图片，预测类别</strong>。</li>
+</ul>
+<h3 id="generative">生成模型 (Generative)<a class="headerlink" href="#generative" title="Permanent link">&para;</a></h3>
+<ul>
+<li>输入随机噪声 <span class="arithmatex">\(z\)</span> → 生成一张像真的猫图。</li>
+<li>学到的：<span class="arithmatex">\(p(x)\)</span> 或 <span class="arithmatex">\(p(x,y)\)</span>，即 <strong>建模整个数据分布</strong>。</li>
+</ul>
+<hr />
+<h2 id="3_2">3. 常见生成模型<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h2>
+<h3 id="a">(a) 显式建模分布<a class="headerlink" href="#a" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>高斯混合模型 (GMM)</strong>：假设数据由多个高斯分布组成。</li>
+<li><strong>VAE (变分自编码器)</strong>：学潜在分布，采样生成数据。</li>
+<li><strong>Flow-based models</strong> (如 RealNVP, Glow)：可逆变换，把复杂分布变成高斯，再反推回来生成数据。</li>
+</ul>
+<h3 id="b">(b) 隐式建模分布<a class="headerlink" href="#b" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>GAN (生成对抗网络)</strong>：生成器 + 判别器对抗训练，不直接算概率，而是用博弈来学分布。</li>
+</ul>
+<hr />
+<h2 id="4_2">4. 应用<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>图像生成</strong>：生成手写数字、人脸、风格迁移。</li>
+<li><strong>文本生成</strong>：语言模型（GPT）本质也是生成模型 → 学 <span class="arithmatex">\(p(x)\)</span>，生成句子。</li>
+<li><strong>语音生成</strong>：TTS (Text-to-Speech)。</li>
+<li><strong>半监督学习</strong>：生成模型能利用 unlabeled data。</li>
+<li><strong>异常检测</strong>：如果某个输入样本概率极低 → 可能是异常。</li>
+</ul>
+<hr />
+<h2 id="5">5. 总结对比<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>学的是什么</th>
+<th>例子</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>判别模型</strong></td>
+<td>(p(y</td>
+<td>x))，分类边界</td>
+<td>Logistic Regression, CNN 分类器</td>
+</tr>
+<tr>
+<td><strong>生成模型</strong></td>
+<td><span class="arithmatex">\(p(x)\)</span> 或 <span class="arithmatex">\(p(x,y)\)</span>，数据分布</td>
+<td>GMM, VAE, GAN, Flow, GPT</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>📌 一句话记忆：
+<strong>生成模型不是学“判别”，而是学“如何造数据”，既能理解数据分布，又能生成新样本。</strong></p>
+<hr />
+<p>要不要我帮你画一张 <strong>生成模型 vs 判别模型的对比图</strong>，直观展示“分类 vs 造数据”的区别？</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

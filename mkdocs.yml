@@ -5,6 +5,9 @@ theme:
 nav:
   - Home: index.md
   - LLMs review: llm_review.md
+  - Alignment: alignment.md
+  - Adversarial learning: adv_learning.md
+  - LLM Security: llm_security.md
   - Overthinking:
       - Comparasion: Overthinking/comparasion.md
       - Survey:

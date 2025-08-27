@@ -9,22 +9,22 @@
       
       
       
-        <link rel="prev" href="../../1_1/training/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../distill/">
+        <link rel="next" href="../alignment/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
-        <title>Intro - MySite</title>
+        <title>LLMs review - MySite</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
       
 
@@ -43,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-constructing-variable-length-cot-reasoning-datasets" class="md-skip">
+        <a href="#1" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="MySite" class="md-header__button md-logo" aria-label="MySite" data-md-component="logo">
+    <a href=".." title="MySite" class="md-header__button md-logo" aria-label="MySite" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Intro
+              LLMs review
             
           </span>
         </div>
@@ -176,7 +176,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="MySite" class="md-nav__button md-logo" aria-label="MySite" data-md-component="logo">
+    <a href=".." title="MySite" class="md-nav__button md-logo" aria-label="MySite" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -194,7 +194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -213,10 +213,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../llm_review/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    LLMs review
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -227,6 +247,105 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 模型结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 训练范式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 推理与效率
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 推理能力
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 验证与可靠性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 外部工具
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 评测
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 安全与对齐
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 应用
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -238,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../alignment/" class="md-nav__link">
+      <a href="../alignment/" class="md-nav__link">
         
   
   
@@ -260,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../adv_learning/" class="md-nav__link">
+      <a href="../adv_learning/" class="md-nav__link">
         
   
   
@@ -279,20 +398,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -308,7 +425,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Overthinking
@@ -322,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../comparasion/" class="md-nav__link">
+      <a href="../Overthinking/comparasion/" class="md-nav__link">
         
   
   
@@ -342,20 +459,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -371,7 +486,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             Survey
@@ -385,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../roadmap/" class="md-nav__link">
+      <a href="../Overthinking/survey/roadmap/" class="md-nav__link">
         
   
   
@@ -446,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_1/intro/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/intro/" class="md-nav__link">
         
   
   
@@ -469,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_1/o1/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/o1/" class="md-nav__link">
         
   
   
@@ -492,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_1/L1/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/L1/" class="md-nav__link">
         
   
   
@@ -515,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_1/kimi/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/kimi/" class="md-nav__link">
         
   
   
@@ -538,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_1/dast/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/dast/" class="md-nav__link">
         
   
   
@@ -561,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1_1/training/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_1/training/" class="md-nav__link">
         
   
   
@@ -589,20 +704,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_3" >
         
           
           <label class="md-nav__link" for="__nav_5_2_3" id="__nav_5_2_3_label" tabindex="0">
@@ -618,7 +731,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_3">
             <span class="md-nav__icon md-icon"></span>
             1.2 Model-based: SFT with Variable-Length CoT
@@ -629,32 +742,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Intro
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Overthinking/survey/1_2/intro/" class="md-nav__link">
         
   
   
@@ -665,44 +756,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#post-reasoning-cot-compression" class="md-nav__link">
-    <span class="md-ellipsis">
-      Post-reasoning CoT Compression.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#obtaining-compressed-cot-data-during-reasoning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Obtaining Compressed CoT Data during Reasoning.
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -715,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../distill/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/distill/" class="md-nav__link">
         
   
   
@@ -738,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../c3ot/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/c3ot/" class="md-nav__link">
         
   
   
@@ -761,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tokenskip/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/tokenskip/" class="md-nav__link">
         
   
   
@@ -784,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../learntoskip/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/learntoskip/" class="md-nav__link">
         
   
   
@@ -807,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../selftraining/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/selftraining/" class="md-nav__link">
         
   
   
@@ -830,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tokenbudget/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/tokenbudget/" class="md-nav__link">
         
   
   
@@ -853,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cotvalve/" class="md-nav__link">
+      <a href="../Overthinking/survey/1_2/cotvalve/" class="md-nav__link">
         
   
   
@@ -922,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/intro/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/intro/" class="md-nav__link">
         
   
   
@@ -945,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/coconut/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/coconut/" class="md-nav__link">
         
   
   
@@ -968,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/codi/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/codi/" class="md-nav__link">
         
   
   
@@ -991,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/ccot/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/ccot/" class="md-nav__link">
         
   
   
@@ -1014,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_1/softcot/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_1/softcot/" class="md-nav__link">
         
   
   
@@ -1083,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/intro/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/intro/" class="md-nav__link">
         
   
   
@@ -1106,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/speculative/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/speculative/" class="md-nav__link">
         
   
   
@@ -1129,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/rsd/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/rsd/" class="md-nav__link">
         
   
   
@@ -1152,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/dpts/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/dpts/" class="md-nav__link">
         
   
   
@@ -1175,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/certaindex/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/certaindex/" class="md-nav__link">
         
   
   
@@ -1198,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/fastmcts/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/fastmcts/" class="md-nav__link">
         
   
   
@@ -1221,7 +1274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/lengthfiltered/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/lengthfiltered/" class="md-nav__link">
         
   
   
@@ -1244,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/stbon/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/stbon/" class="md-nav__link">
         
   
   
@@ -1267,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/lightthinker/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/lightthinker/" class="md-nav__link">
         
   
   
@@ -1290,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/inftythinker/" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/inftythinker/" class="md-nav__link">
         
   
   
@@ -1313,7 +1366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2_2/samplingefficient.md" class="md-nav__link">
+      <a href="../Overthinking/survey/2_2/samplingefficient.md" class="md-nav__link">
         
   
   
@@ -1382,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/intro/" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/intro/" class="md-nav__link">
         
   
   
@@ -1405,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/tokenbudget/" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/tokenbudget/" class="md-nav__link">
         
   
   
@@ -1428,7 +1481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/chainofdraft/" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/chainofdraft/" class="md-nav__link">
         
   
   
@@ -1451,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/taleep/" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/taleep/" class="md-nav__link">
         
   
   
@@ -1520,7 +1573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/claude.md" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/claude.md" class="md-nav__link">
         
   
   
@@ -1543,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3_1/sot.md" class="md-nav__link">
+      <a href="../Overthinking/survey/3_1/sot.md" class="md-nav__link">
         
   
   
@@ -1599,8 +1652,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1609,18 +1660,81 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#post-reasoning-cot-compression" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      Post-reasoning CoT Compression.
+      1. 模型结构
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#obtaining-compressed-cot-data-during-reasoning" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      Obtaining Compressed CoT Data during Reasoning.
+      2. 训练范式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 推理与效率
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 推理能力
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 验证与可靠性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 外部工具
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 评测
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 安全与对齐
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 应用
     </span>
   </a>
   
@@ -1642,83 +1756,64 @@
 
 
 
-<h1 id="1-constructing-variable-length-cot-reasoning-datasets">1. Constructing Variable-Length CoT Reasoning Datasets<a class="headerlink" href="#1-constructing-variable-length-cot-reasoning-datasets" title="Permanent link">&para;</a></h1>
-<h2 id="post-reasoning-cot-compression">Post-reasoning CoT Compression.<a class="headerlink" href="#post-reasoning-cot-compression" title="Permanent link">&para;</a></h2>
-<p>This approach collects short CoT data by reducing redundant
-reasoning steps after full-length reasoning, either by heuristic criterion or LLMs, as proposed in</p>
+  <h1>LLMs review</h1>
+
+<p>好的。系统复习 LLM 可以从以下几个方面入手：</p>
+<hr />
+<h2 id="1">1. <strong>模型结构</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Distilling 2-1</li>
-<li>C3oT</li>
-<li>TokenSkip</li>
+<li>基础：Transformer（注意力、前馈、归一化）。</li>
+<li>变体：MoE（专家混合）、多查询注意力、旋转位置编码、线性注意力。</li>
+<li>Scaling law：性能随参数量 × 数据量 × 计算量的扩展规律。</li>
 </ul>
-<h2 id="obtaining-compressed-cot-data-during-reasoning">Obtaining Compressed CoT Data during Reasoning.<a class="headerlink" href="#obtaining-compressed-cot-data-during-reasoning" title="Permanent link">&para;</a></h2>
-<p>This approach collects short CoT data
-by prompting LLMs to generate short reasoning steps during inference and reasoning, as proposed
-in [70], [82], [37], and [79].</p>
-<h1 id="2-fine-tuning-approaches">2. Fine-Tuning Approaches<a class="headerlink" href="#2-fine-tuning-approaches" title="Permanent link">&para;</a></h1>
-<hr />
-<p>好的。我来系统梳理 <strong>“Constructing Variable-Length CoT Reasoning Datasets”</strong> 这一研究思路。</p>
-<hr />
-<h1 id="_1">研究动机<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="2">2. <strong>训练范式</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><strong>固定长度 CoT 问题</strong>：现有 CoT 数据集大多只保留单一“全长推理链”。</p>
-</li>
-<li>
-<p>弊端：模型学习不到“不同长度推理”的权衡，容易过度生成或不足。</p>
-</li>
-<li><strong>目标</strong>：构造 <strong>可变长度推理数据集</strong>，让模型能学习在<strong>不同推理深度下</strong>保持正确，并学会自适应控制长度。</li>
+<li><strong>预训练</strong>：大规模语料，next-token prediction。</li>
+<li><strong>微调</strong>：领域适配、指令微调 (SFT)。</li>
+<li><strong>对齐</strong>：RLHF、DPO、GRPO 等。</li>
+<li><strong>蒸馏</strong>：大模型压缩为小模型。</li>
 </ul>
-<hr />
-<h1 id="_2">构造方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<ol>
-<li><strong>基础数据</strong>：从现有数学、逻辑或 QA 数据集中，收集包含 <strong>完整推理链</strong> 的样本。</li>
-<li>
-<p><strong>截断生成</strong>：</p>
-</li>
-<li>
-<p>将完整 CoT 在不同步数/位置截断，形成<strong>不同长度的子推理链</strong>。</p>
-</li>
-<li>保留“部分思维 + 最终答案”或“部分思维 + 中间结论”。</li>
-<li>
-<p><strong>可变长度标注</strong>：</p>
-</li>
-<li>
-<p>标注每条子链的长度（短 / 中 / 长）。</p>
-</li>
-<li>在训练时显式提示“生成长度”或隐式让模型从多样本中学习。</li>
-<li>
-<p><strong>多视角构造</strong>：</p>
-</li>
-<li>
-<p><strong>增量式</strong>：逐步添加思维步，得到不同长度版本。</p>
-</li>
-<li><strong>压缩式</strong>：人为合并、概括，形成更短的“简洁链路”。</li>
-<li><strong>最终数据集</strong>：对每个问题，提供 <strong>多条推理路径</strong>（短、中、长），共同构成“可变长度训练样本”。</li>
-</ol>
-<hr />
-<h1 id="_3">训练/应用方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<h2 id="3">3. <strong>推理与效率</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>SFT</strong>：让模型在不同长度链上学习生成。</li>
-<li><strong>条件控制</strong>：输入中加入“长度指令”，如 <em>short reasoning</em>, <em>medium reasoning</em>。</li>
-<li><strong>RL 或奖励建模</strong>：在可变链上定义 <strong>长度–准确率权衡的奖励</strong>，训练模型学会“够用就停”。</li>
+<li><strong>解码技巧</strong>：beam search、nucleus sampling、temperature。</li>
+<li><strong>测试时扩展</strong>：CoT、ToT、自一致性。</li>
+<li><strong>效率方法</strong>：early exit、token skipping、speculative decoding。</li>
+</ul>
+<h2 id="4">4. <strong>推理能力</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>显式推理（CoT） vs 隐式潜在推理。</li>
+<li>大推理模型（LRM）。</li>
+<li>自适应推理强度、避免 overthinking。</li>
+</ul>
+<h2 id="5">5. <strong>验证与可靠性</strong><a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Verifier、PRM、自一致性、集成。</li>
+<li>不确定性估计、概率校准。</li>
+</ul>
+<h2 id="6">6. <strong>外部工具</strong><a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>RAG（检索增强）。</li>
+<li>计算器、代码执行器、符号推理。</li>
+<li>长期记忆、规划型 agent。</li>
+</ul>
+<h2 id="7">7. <strong>评测</strong><a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>基准</strong>：MMLU、BIG-Bench、MATH、Codeforces、AIME、LiveCodeBench。</li>
+<li><strong>指标</strong>：准确率、pass\@k、F1、BLEU、困惑度、校准误差。</li>
+</ul>
+<h2 id="8">8. <strong>安全与对齐</strong><a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>拒答 vs 服从的权衡。</li>
+<li>鲁棒性：对抗提示、越狱攻击。</li>
+<li>可认证鲁棒性、红队测试、可解释性。</li>
+</ul>
+<h2 id="9">9. <strong>应用</strong><a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>通用：对话、摘要、翻译、检索。</li>
+<li>专业：代码生成、科学推理、法律/医疗 NLP。</li>
 </ul>
 <hr />
-<h1 id="_4">优势<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<ul>
-<li><strong>多样性</strong>：提供不同深度的推理范例。</li>
-<li><strong>长度鲁棒性</strong>：模型不再只会“长链路”，而是学会在短链路下保持正确率。</li>
-<li><strong>下游可控</strong>：可结合“长度预算 / token 限制”，灵活应用。</li>
-</ul>
-<hr />
-<h1 id="_5">典型应用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
-<ul>
-<li><strong>可变长度 CoT 控制</strong> (Variable-length CoT control)：根据算力预算/时延约束，动态选择短链或长链。</li>
-<li><strong>数据蒸馏</strong>：用强模型生成不同深度 CoT，训练小模型。</li>
-<li><strong>效率优化</strong>：配合方法如 Chain of Draft、Length-filtered Vote，提升推理效率。</li>
-</ul>
-<hr />
-<p>要不要我帮你整理一个 <strong>数据构造 pipeline 图</strong>（原始问题 → 全长 CoT → 截断/压缩 → 多版本子链 → 数据集）？这样能直观看到“变量长数据集”的生成过程。</p>
+<p>要不要我给你整理一份 <strong>一页式复习清单</strong>，方便在面试/组会前快速过一遍？</p>
 
 
 
@@ -1767,10 +1862,10 @@ in [70], [82], [37], and [79].</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
       
